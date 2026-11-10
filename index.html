@@ -1,49 +1,457 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="H대학교 병원 패러디 웹사이트 데모" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#800020">
   <title>H대학교 병원 | H University Hospital</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="demo-notice">본 웹사이트는 창작용 패러디 데모이며 실제 의료기관이 아닙니다.</div>
+  <div class="demo-banner">
+    본 사이트는 창작용 가상 대학병원 홈페이지입니다.
+  </div>
+
+  <!-- ==================== HEADER ==================== -->
   <header class="site-header">
-    <div class="utility wrap"><span>건강한 내일을 함께하는 H대학교 병원</span><div><a href="#footer">병원안내</a><span aria-hidden="true">│</span><a href="#footer">ENG</a></div></div>
-    <div class="nav-row wrap">
-      <a href="#home" class="logo" aria-label="H대학교 병원 홈"><span class="logo-symbol">H<span>+</span></span><span class="logo-text">H대학교 병원<small>H UNIVERSITY HOSPITAL</small></span></a>
-      <nav class="desktop-nav" aria-label="주 메뉴"><a href="#services">진료안내</a><a href="#services">예약·발급</a><a href="#services">이용안내</a><a href="#news">병원소식</a><a href="#about">병원소개</a></nav>
-      <div class="nav-actions"><button class="icon-button" id="searchToggle" aria-label="검색 열기" aria-expanded="false">⌕</button><button class="menu-button" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <span>H UNIVERSITY HOSPITAL</span>
+        <div class="utility-links">
+          <a href="#news">병원소식</a>
+          <a href="#location">오시는 길</a>
+          <a href="#footer">사이트 안내</a>
+        </div>
+      </div>
     </div>
-    <div class="search-panel" id="searchPanel" hidden><form class="wrap" id="searchForm"><label for="siteSearch">통합검색</label><input id="siteSearch" placeholder="진료과, 의료진, 병원 소식을 검색해 보세요" /><button type="submit">검색</button></form></div>
-    <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴" hidden><a href="#services">진료안내</a><a href="#services">예약·발급</a><a href="#services">이용안내</a><a href="#news">병원소식</a><a href="#about">병원소개</a></nav>
+
+    <div class="container header-inner">
+      <!-- ★ 병원 로고 교체 위치 ★ -->
+      <a href="index.html" class="logo">
+        <span class="logo-mark">H<em>+</em></span>
+        <span class="logo-name">
+          <strong>H대학교 병원</strong>
+          <small>H UNIVERSITY HOSPITAL</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="주 메뉴">
+        <a href="#patient">진료안내</a>
+        <a href="#quick">진료예약</a>
+        <a href="#patient">의료진 찾기</a>
+        <a href="#news">병원소식</a>
+        <a href="#about">병원소개</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="searchToggle"
+                aria-label="검색 열기" aria-expanded="false">⌕</button>
+        <button class="icon-button menu-button" id="menuToggle"
+                aria-label="메뉴 열기" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <div class="search-panel" id="searchPanel" hidden>
+      <form class="container search-form demo-form">
+        <input type="search" placeholder="진료과, 의료진, 병원 정보 검색"
+               aria-label="통합검색">
+        <button type="submit">검색</button>
+      </form>
+    </div>
   </header>
-  <main id="home">
+
+  <main>
+    <!-- ==================== MAIN VISUAL ==================== -->
     <section class="hero" aria-label="병원 메인 배너">
-      <!-- [메인 이미지 교체 위치] 아래 .hero-slide의 background-image를 원하는 이미지 경로로 변경하세요. 예: url('images/main-01.jpg') -->
-      <div class="hero-slide active" style="--slide-bg:linear-gradient(115deg,#310912aa,#510d22bb),linear-gradient(130deg,#8c4659,#3d0b1b 75%)"><div class="hero-decoration"></div></div>
-      <!-- [메인 배너 2 이미지 교체 위치] -->
-      <div class="hero-slide" style="--slide-bg:linear-gradient(115deg,#250711aa,#4a1520bb),linear-gradient(125deg,#9d6d76,#472331 75%)"><div class="hero-decoration"></div></div>
-      <!-- [메인 배너 3 이미지 교체 위치] -->
-      <div class="hero-slide" style="--slide-bg:linear-gradient(115deg,#2d0715aa,#4c1426bb),linear-gradient(125deg,#6f3449,#26101c 75%)"><div class="hero-decoration"></div></div>
-      <div class="wrap hero-content"><div class="hero-copy"><span class="eyebrow">H UNIVERSITY HOSPITAL</span><h1 id="heroTitle">사람을 향한 의료,<br /><strong>내일을 여는 H대학교 병원</strong></h1><p id="heroDescription">환자의 마음까지 살피는 따뜻한 진료와<br />더 나은 미래를 위한 의학의 발전을 함께합니다.</p><a href="#about" class="hero-link">병원 소개 보기 <span>↗</span></a></div><div class="hero-controls"><span id="slideNumber">01 <em>/ 03</em></span><button id="prevSlide" aria-label="이전 배너">←</button><button id="pauseSlide" aria-label="자동재생 일시정지">Ⅱ</button><button id="nextSlide" aria-label="다음 배너">→</button></div></div>
+
+      <!--
+        ★ 메인 배너 이미지 교체 위치 ★
+        style.css 상단의 --hero-1, --hero-2, --hero-3 수정
+        권장 크기: 1920 × 850px
+      -->
+      <div class="hero-slide slide-one active">
+        <div class="container hero-content">
+          <span class="hero-eyebrow">H UNIVERSITY HOSPITAL</span>
+          <h1>사람을 향한 의료,<br>내일을 여는 병원</h1>
+          <p>환자의 마음까지 살피는 따뜻한 진료<br>
+             더 나은 미래를 위한 의학의 발전</p>
+          <a href="#about" class="hero-link">병원 소개 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-slide slide-two">
+        <div class="container hero-content">
+          <span class="hero-eyebrow">PATIENT FIRST, ALWAYS</span>
+          <h1>환자 중심의 진료,<br>신뢰받는 의료서비스</h1>
+          <p>건강한 일상을 위해 함께하는 병원<br>
+             전문성과 책임감을 바탕으로 한 의료</p>
+          <a href="#patient" class="hero-link">진료안내 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-slide slide-three">
+        <div class="container hero-content">
+          <span class="hero-eyebrow">RESEARCH & INNOVATION</span>
+          <h1>끊임없는 연구로<br>의료의 미래를 만듭니다</h1>
+          <p>진료와 교육, 연구가 함께하는 공간<br>
+             새로운 가능성을 향한 도전</p>
+          <a href="#news" class="hero-link">병원 소식 보기 ↗</a>
+        </div>
+      </div>
+
+      <div class="container hero-controls">
+        <div class="slide-dots">
+          <button class="slide-dot active" data-slide="0"
+                  aria-label="첫 번째 배너"></button>
+          <button class="slide-dot" data-slide="1"
+                  aria-label="두 번째 배너"></button>
+          <button class="slide-dot" data-slide="2"
+                  aria-label="세 번째 배너"></button>
+        </div>
+        <span id="slideCounter">01 / 03</span>
+        <button id="prevSlide" aria-label="이전 배너">←</button>
+        <button id="pauseSlide" aria-label="슬라이드 일시정지">Ⅱ</button>
+        <button id="nextSlide" aria-label="다음 배너">→</button>
+      </div>
     </section>
-    <section class="quick-services wrap" id="services" aria-label="주요 서비스">
-      <a class="quick-card primary" href="#" data-demo="진료예약"><span class="quick-icon">▦</span><span><strong>진료예약</strong><small>편리한 온라인 예약 안내</small></span><b>↗</b></a>
-      <a class="quick-card" href="#" data-demo="진료과 안내"><span class="quick-icon">✚</span><span><strong>진료과 안내</strong><small>진료과별 정보를 확인하세요</small></span><b>↗</b></a>
-      <a class="quick-card" href="#" data-demo="의료진 찾기"><span class="quick-icon">♙</span><span><strong>의료진 찾기</strong><small>전문 의료진을 찾아보세요</small></span><b>↗</b></a>
-      <a class="quick-card" href="#" data-demo="오시는 길"><span class="quick-icon">⌖</span><span><strong>오시는 길</strong><small>병원 위치 및 교통 안내</small></span><b>↗</b></a>
+
+    <!-- ==================== QUICK MENU ==================== -->
+    <section class="quick-section" id="quick">
+      <div class="container quick-grid">
+        <a href="#" class="quick-card demo-link">
+          <span class="quick-icon">▦</span>
+          <strong>진료예약</strong><small>온라인 예약</small>
+        </a>
+        <a href="#" class="quick-card demo-link">
+          <span class="quick-icon">✚</span>
+          <strong>진료과 안내</strong><small>진료과별 정보</small>
+        </a>
+        <a href="#patient" class="quick-card">
+          <span class="quick-icon">♙</span>
+          <strong>의료진 찾기</strong><small>의료진 검색</small>
+        </a>
+        <a href="#" class="quick-card demo-link">
+          <span class="quick-icon">▤</span>
+          <strong>예약조회</strong><small>예약 확인·취소</small>
+        </a>
+        <a href="#" class="quick-card demo-link">
+          <span class="quick-icon">▣</span>
+          <strong>증명서 발급</strong><small>발급 안내</small>
+        </a>
+        <a href="#location" class="quick-card">
+          <span class="quick-icon">⌖</span>
+          <strong>오시는 길</strong><small>위치·교통 안내</small>
+        </a>
+      </div>
     </section>
-    <section class="welcome wrap" id="about"><div><span class="section-kicker">PATIENT FIRST, ALWAYS</span><h2>신뢰를 바탕으로,<br /><em>건강한 미래를 만들어갑니다.</em></h2><p>H대학교 병원은 환자 중심의 진료와 끊임없는 연구를 통해<br class="desktop-only" /> 더 나은 의료의 가치를 실현하고자 합니다.</p><a class="text-link" href="#news">H대학교 병원 소식 보기 <span>→</span></a></div><div class="welcome-art" role="img" aria-label="병원 이미지 자리 표시자"><!-- [병원 소개 이미지 삽입 위치] CSS .welcome-art에 background-image를 지정하거나 이 안에 img 태그를 넣으세요. --><div class="art-cross">+</div><span>H UNIVERSITY<br />HOSPITAL</span></div></section>
-    <section class="news-section" id="news"><div class="wrap"><div class="section-heading"><div><span class="section-kicker">H HOSPITAL NEWS</span><h2>H대학교 병원 <em>소식</em></h2></div><a href="#news" class="text-link">전체보기 <span>↗</span></a></div><div class="news-grid"><article class="featured-news"><div class="news-visual"><!-- [대표 뉴스 이미지 교체 위치] .news-visual에 background-image를 지정하세요. --><span>HOSPITAL NEWS</span></div><div class="featured-body"><span class="category">병원소식</span><h3>H대학교 병원, 새로운 의료의 미래를 향해 나아갑니다</h3><p>환자 중심의 의료 환경 조성을 위한 새로운 도약을 시작합니다.</p><time datetime="2026-11-10">2026.11.10</time></div></article><div class="news-list"><div class="news-list-head"><h3>공지사항</h3><span>NOTICE</span></div><a href="#news"><span>병원 홈페이지 서비스 이용 안내</span><time>2026.11.10</time></a><a href="#news"><span>진료 일정 및 이용 안내</span><time>2026.11.06</time></a><a href="#news"><span>건강증진센터 운영 안내</span><time>2026.11.02</time></a><a href="#news"><span>H대학교 병원 개인정보 보호 안내</span><time>2026.10.28</time></a><div class="notice-foot">※ 위 소식은 디자인 시연을 위한 가상 예시입니다.</div></div></div></div></section>
-    <section class="bottom-banner"><div class="wrap bottom-inner"><div><span>H UNIVERSITY HOSPITAL</span><h2>건강한 일상, H대학교 병원이 함께합니다.</h2><p>진료부터 건강관리까지, 필요한 정보를 한곳에서 확인하세요.</p></div><a href="#services">진료 서비스 살펴보기 <span>→</span></a></div><!-- [하단 홍보 배너 이미지 삽입 위치] .bottom-banner에 background-image를 추가하세요. --></section>
+
+    <!-- ==================== PATIENT SERVICES ==================== -->
+    <section class="section patient-section" id="patient">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">PATIENT SERVICES</span>
+          <h2>진료 및 이용안내</h2>
+          <p>H대학교 병원의 주요 서비스를 편리하게 이용하세요.</p>
+        </div>
+
+        <div class="patient-grid">
+          <div class="doctor-search">
+            <h3>의료진 찾기</h3>
+            <p>진료과, 의료진 이름 또는 진료 분야로 검색해 보세요.</p>
+            <form class="doctor-form demo-form">
+              <input type="search" placeholder="의료진 또는 진료과 검색"
+                     aria-label="의료진 검색">
+              <button type="submit">검색</button>
+            </form>
+          </div>
+
+          <div class="guide-grid">
+            <a href="#" class="guide-card demo-link">
+              <strong>외래진료 안내</strong>
+              <span>접수 및 진료 절차</span><b>↗</b>
+            </a>
+            <a href="#" class="guide-card demo-link">
+              <strong>입·퇴원 안내</strong>
+              <span>입원생활 및 퇴원 절차</span><b>↗</b>
+            </a>
+            <a href="#" class="guide-card demo-link">
+              <strong>진료시간표</strong>
+              <span>진료 일정 확인</span><b>↗</b>
+            </a>
+            <a href="#" class="guide-card demo-link">
+              <strong>자주 묻는 질문</strong>
+              <span>병원 이용 FAQ</span><b>↗</b>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NEWS & MEDIA ==================== -->
+    <section class="section news-section" id="news">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">H HOSPITAL NEWS & MEDIA</span>
+          <h2>병원 소식과 건강정보</h2>
+          <p>병원의 새로운 이야기와 다양한 건강 콘텐츠를 만나보세요.</p>
+        </div>
+
+        <div class="news-grid">
+          <div class="news-board">
+            <div class="news-tabs" role="tablist" aria-label="병원 소식 분류">
+              <button class="news-tab active" data-tab="notice"
+                      role="tab" aria-selected="true">병원소식</button>
+              <button class="news-tab" data-tab="lecture"
+                      role="tab" aria-selected="false">강좌안내</button>
+              <button class="news-tab" data-tab="press"
+                      role="tab" aria-selected="false">언론보도</button>
+            </div>
+
+            <!-- ★ 게시글은 예시이며 직접 수정 가능 ★ -->
+            <div class="news-panel active" id="notice" role="tabpanel">
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">공지</span>
+                <span class="news-title">H대학교 병원 홈페이지 이용 안내</span>
+                <time>2026.11.10</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">소식</span>
+                <span class="news-title">환자 중심 의료서비스 개선 프로젝트 안내</span>
+                <time>2026.11.05</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">공지</span>
+                <span class="news-title">외래진료 및 병원 시설 이용 안내</span>
+                <time>2026.10.29</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">소식</span>
+                <span class="news-title">지역사회 건강증진 프로그램 소개</span>
+                <time>2026.10.20</time>
+              </a>
+            </div>
+
+            <div class="news-panel" id="lecture" role="tabpanel" hidden>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">강좌</span>
+                <span class="news-title">건강한 생활습관을 위한 공개강좌</span>
+                <time>2026.11.12</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">강좌</span>
+                <span class="news-title">심혈관 건강관리 교육 프로그램</span>
+                <time>2026.11.02</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">강좌</span>
+                <span class="news-title">만성질환 예방과 관리 건강교실</span>
+                <time>2026.10.24</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">강좌</span>
+                <span class="news-title">환자와 보호자를 위한 건강정보 강연</span>
+                <time>2026.10.15</time>
+              </a>
+            </div>
+
+            <div class="news-panel" id="press" role="tabpanel" hidden>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">보도</span>
+                <span class="news-title">H대학교 병원, 미래 의료 연구 방향 발표</span>
+                <time>2026.11.08</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">보도</span>
+                <span class="news-title">지역사회와 함께하는 건강증진 활동</span>
+                <time>2026.11.01</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">보도</span>
+                <span class="news-title">환자 중심 진료환경 조성을 위한 노력</span>
+                <time>2026.10.22</time>
+              </a>
+              <a href="#" class="news-row demo-link">
+                <span class="news-tag">보도</span>
+                <span class="news-title">의료 교육 및 연구 협력 프로그램 소개</span>
+                <time>2026.10.10</time>
+              </a>
+            </div>
+            <a href="#" class="more-link demo-link">전체 소식 보기 +</a>
+          </div>
+
+          <!-- ==================== HEALTH TV ==================== -->
+          <div class="health-board">
+            <div class="health-heading">
+              <h3>건강정보 <span>H TV</span></h3>
+              <a href="#" class="demo-link">더보기 +</a>
+            </div>
+
+            <!--
+              ★ 유튜브 썸네일 교체 위치 ★
+              images/health-video-01.jpg 등으로 이미지 저장
+              실제 영상 연결 시 href를 유튜브 주소로 변경하고
+              demo-link 클래스를 제거하세요.
+            -->
+            <div class="video-grid">
+              <a href="#" class="video-card featured demo-link">
+                <div class="video-thumb">
+                  <img src="images/health-video-01.jpg"
+                       alt="건강한 생활습관 영상 썸네일"
+                       onerror="this.style.display='none'">
+                  <span class="play-icon">▶</span>
+                </div>
+                <div class="video-info">
+                  <strong>건강한 일상을 위한 올바른 생활습관</strong>
+                  <small>H대학교 병원 건강정보 · 예시 영상</small>
+                </div>
+              </a>
+
+              <a href="#" class="video-card demo-link">
+                <div class="video-thumb">
+                  <img src="images/health-video-02.jpg"
+                       alt="건강검진 영상 썸네일"
+                       onerror="this.style.display='none'">
+                  <span class="play-icon">▶</span>
+                </div>
+                <div class="video-info">
+                  <strong>정기 건강검진, 무엇을 알아야 할까?</strong>
+                  <small>건강정보 · 예시 영상</small>
+                </div>
+              </a>
+
+              <a href="#" class="video-card demo-link">
+                <div class="video-thumb">
+                  <img src="images/health-video-03.jpg"
+                       alt="건강관리 영상 썸네일"
+                       onerror="this.style.display='none'">
+                  <span class="play-icon">▶</span>
+                </div>
+                <div class="video-info">
+                  <strong>일상 속 건강관리 방법 알아보기</strong>
+                  <small>건강정보 · 예시 영상</small>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT HOSPITAL ==================== -->
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <!--
+          ★ 병원 소개 이미지 교체 위치 ★
+          style.css의 --hospital-image 변수 수정
+          권장 크기: 1000 × 750px
+        -->
+        <div class="about-image">
+          <span>H UNIVERSITY HOSPITAL</span>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">ABOUT H UNIVERSITY HOSPITAL</span>
+          <h2>생명을 존중하고,<br>사람을 먼저 생각합니다.</h2>
+          <p>H대학교 병원은 진료, 교육, 연구의 가치를 바탕으로
+             환자 중심의 의료서비스를 지향하는 가상의 대학병원입니다.</p>
+          <p>신뢰와 존중을 바탕으로 건강한 미래를 만들어가는
+             병원의 모습을 담았습니다.</p>
+          <a href="#" class="outline-link demo-link">
+            병원소개 자세히 보기 ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HOSPITAL INFORMATION ==================== -->
+    <section class="section information-section" id="facilities">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">HOSPITAL INFORMATION</span>
+          <h2>병원 이용정보</h2>
+          <p>방문 전 필요한 정보를 확인해 보세요.</p>
+        </div>
+
+        <div class="information-grid">
+          <!--
+            ★ 시설 안내 이미지 교체 위치 ★
+            style.css의 --facility-image 변수 수정
+          -->
+          <article class="information-card facility-card">
+            <span class="facility-label">HOSPITAL FACILITIES</span>
+            <h3>병원 시설 안내</h3>
+            <p>환자와 보호자를 위한<br>편리하고 쾌적한 병원 시설</p>
+            <a href="#" class="demo-link">시설 둘러보기 ↗</a>
+          </article>
+
+          <article class="information-card">
+            <span class="eyebrow">VISITOR GUIDE</span>
+            <h3>방문객 안내</h3>
+            <ul class="information-links">
+              <li><a href="#" class="demo-link">주차장 이용안내 <span>↗</span></a></li>
+              <li><a href="#" class="demo-link">면회 및 방문안내 <span>↗</span></a></li>
+              <li><a href="#" class="demo-link">원내 편의시설 <span>↗</span></a></li>
+              <li><a href="#" class="demo-link">층별 시설안내 <span>↗</span></a></li>
+            </ul>
+          </article>
+
+          <article class="information-card">
+            <span class="eyebrow">CUSTOMER SERVICE</span>
+            <h3>고객지원 서비스</h3>
+            <ul class="information-links">
+              <li><a href="#" class="demo-link">고객의 소리 <span>↗</span></a></li>
+              <li><a href="#" class="demo-link">진료서류 발급 <span>↗</span></a></li>
+              <li><a href="#" class="demo-link">전화번호 안내 <span>↗</span></a></li>
+              <li><a href="#" class="demo-link">자주 묻는 질문 <span>↗</span></a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact-band" id="location">
+      <div class="container contact-grid">
+        <div>
+          <small>대표전화</small>
+          <strong>전화번호 등록 예정</strong>
+          <p>가상 병원 안내 정보</p>
+        </div>
+        <div>
+          <small>진료시간</small>
+          <strong>진료시간 등록 예정</strong>
+          <p>실제 진료를 제공하지 않습니다.</p>
+        </div>
+        <div>
+          <small>오시는 길</small>
+          <strong>병원 주소 등록 예정</strong>
+          <p>가상의 병원으로 실제 방문이 불가능합니다.</p>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer id="footer"><div class="wrap footer-top"><a href="#home" class="footer-logo">H<span>+</span> <strong>H대학교 병원</strong></a><div><a href="#footer">개인정보처리방침</a><a href="#footer">이용약관</a><a href="#footer">사이트맵</a></div></div><div class="wrap footer-bottom"><p>H대학교 병원 (가상 기관) · 주소 및 대표전화: 추후 입력</p><p>© 2026 H UNIVERSITY HOSPITAL. PARODY DEMO ONLY.</p><p class="disclaimer">이 사이트는 창작용 패러디이며 실제 병원, 진료예약, 의료서비스와 무관합니다.</p></div></footer>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-logo">
+        <strong>H대학교 병원</strong>
+        <small>H UNIVERSITY HOSPITAL</small>
+      </div>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#about">병원소개</a>
+          <a href="#location">오시는 길</a>
+          <a href="#news">병원소식</a>
+        </div>
+        <p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p>
+        <p>실제 진료, 예약, 의료 상담 또는 개인정보 수집 기능을 제공하지 않습니다.</p>
+        <p class="copyright">© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</p>
+      </div>
+    </div>
+  </footer>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
