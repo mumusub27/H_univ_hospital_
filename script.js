@@ -1,52 +1,67 @@
 
-/* ==========================================
-   H대학교 병원 홈페이지 JavaScript
-   ========================================== */
+/* ========================================
+   H UNIVERSITY HOSPITAL v2
+   MAIN JAVASCRIPT
+======================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-  // ========== 메인 슬라이드 ==========
+  /* ==============================
+     1. 메인 배너 슬라이드
+  ============================== */
 
-  const slides = [...document.querySelectorAll(".hero-slide")];
-  const dots = [...document.querySelectorAll(".slide-dot")];
+  const slides = Array.from(
+    document.querySelectorAll(".hero-slide")
+  );
 
-  const currentSlideLabel = document.getElementById("currentSlide");
+  const dots = Array.from(
+    document.querySelectorAll(".slide-dot")
+  );
+
+  const slideCounter = document.getElementById("slideCounter");
   const prevButton = document.getElementById("prevSlide");
   const nextButton = document.getElementById("nextSlide");
   const pauseButton = document.getElementById("pauseSlide");
 
-  let currentIndex = 0;
+  let currentSlide = 0;
   let slideTimer = null;
   let isPlaying = true;
 
-  // 자동 전환 간격: 5초
+  // ★ 자동 전환 간격: 5000ms = 5초
   const SLIDE_INTERVAL = 5000;
 
   function showSlide(index) {
     if (slides.length === 0) return;
 
-    currentIndex = (index + slides.length) % slides.length;
+    currentSlide = (index + slides.length) % slides.length;
 
     slides.forEach((slide, i) => {
-      const active = i === currentIndex;
+      const active = i === currentSlide;
+
       slide.classList.toggle("active", active);
       slide.setAttribute("aria-hidden", String(!active));
 
-      // 보이지 않는 슬라이드의 링크는 탭 이동에서 제외
+      // 숨겨진 슬라이드 링크는 키보드 탭 이동에서 제외
       slide.querySelectorAll("a").forEach(link => {
         link.tabIndex = active ? 0 : -1;
       });
     });
 
     dots.forEach((dot, i) => {
-      const active = i === currentIndex;
+      const active = i === currentSlide;
+
       dot.classList.toggle("active", active);
-      dot.setAttribute("aria-current", active ? "true" : "false");
+      dot.setAttribute(
+        "aria-current",
+        active ? "true" : "false"
+      );
     });
 
-    if (currentSlideLabel) {
-      currentSlideLabel.textContent =
-        String(currentIndex + 1).padStart(2, "0");
+    if (slideCounter) {
+      const current = String(currentSlide + 1).padStart(2, "0");
+      const total = String(slides.length).padStart(2, "0");
+
+      slideCounter.textContent = `${current} / ${total}`;
     }
   }
 
@@ -63,139 +78,170 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isPlaying || slides.length <= 1) return;
 
     slideTimer = setInterval(() => {
-      showSlide(currentIndex + 1);
+      showSlide(currentSlide + 1);
     }, SLIDE_INTERVAL);
   }
 
   function moveSlide(direction) {
-    showSlide(currentIndex + direction);
+    showSlide(currentSlide + direction);
     startAutoSlide();
   }
 
-  prevButton?.addEventListener("click", () => moveSlide(-1));
-  nextButton?.addEventListener("click", () => moveSlide(1));
+  // 이전 / 다음 버튼
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      moveSlide(-1);
+    });
+  }
 
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      moveSlide(1);
+    });
+  }
+
+  // 하단 슬라이드 인디케이터
   dots.forEach(dot => {
     dot.addEventListener("click", () => {
       const index = Number(dot.dataset.slide);
 
-      if (!Number.isNaN(index)) {
+      if (Number.isInteger(index)) {
         showSlide(index);
         startAutoSlide();
       }
     });
   });
 
-  pauseButton?.addEventListener("click", () => {
-    isPlaying = !isPlaying;
+  function updatePauseButton() {
+    if (!pauseButton) return;
 
     pauseButton.textContent = isPlaying ? "Ⅱ" : "▶";
     pauseButton.setAttribute(
       "aria-label",
       isPlaying ? "슬라이드 일시정지" : "슬라이드 재생"
     );
+  }
 
-    if (isPlaying) {
+  // 재생 / 일시정지
+  if (pauseButton) {
+    pauseButton.addEventListener("click", () => {
+      isPlaying = !isPlaying;
+      updatePauseButton();
       startAutoSlide();
-    } else {
-      stopAutoSlide();
-    }
-  });
+    });
+  }
 
-  showSlide(0);
-
-  // 사용자가 움직임 최소화를 설정한 경우 자동 재생하지 않음
-  const reduceMotion = window.matchMedia(
+  // 움직임 최소화 설정 존중
+  const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  if (reduceMotion) {
+  if (prefersReducedMotion) {
     isPlaying = false;
-    if (pauseButton) {
-      pauseButton.textContent = "▶";
-      pauseButton.setAttribute("aria-label", "슬라이드 재생");
-    }
-  } else {
-    startAutoSlide();
   }
 
-  // ========== 모바일 메뉴 ==========
+  // 초기 실행
+  showSlide(0);
+  updatePauseButton();
+  startAutoSlide();
+
+
+  /* ==============================
+     2. 병원 소식 탭 전환
+  ============================== */
+
+  const newsTabs = document.querySelectorAll(".news-tab");
+  const newsPanels = document.querySelectorAll(".news-panel");
+
+  newsTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const targetId = tab.dataset.tab;
+
+      newsTabs.forEach(item => {
+        const active = item === tab;
+
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+
+      newsPanels.forEach(panel => {
+        const active = panel.id === targetId;
+
+        panel.classList.toggle("active", active);
+        panel.hidden = !active;
+      });
+    });
+  });
+
+
+  /* ==============================
+     3. 모바일 메뉴
+  ============================== */
 
   const menuToggle = document.getElementById("menuToggle");
   const mainNav = document.getElementById("mainNav");
 
-  menuToggle?.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("open");
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
 
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "메뉴 닫기" : "메뉴 열기"
-    );
-  });
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
 
-  mainNav?.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mainNav.classList.remove("open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      menuToggle?.setAttribute("aria-label", "메뉴 열기");
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "메뉴 닫기" : "메뉴 열기"
+      );
     });
-  });
 
-  // ========== 검색창 열기 / 닫기 ==========
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "메뉴 열기");
+      });
+    });
+  }
+
+
+  /* ==============================
+     4. 검색창 열기 / 닫기
+  ============================== */
 
   const searchToggle = document.getElementById("searchToggle");
   const searchPanel = document.getElementById("searchPanel");
-  const searchForm = document.getElementById("searchForm");
-  const searchInput = document.getElementById("searchInput");
 
-  searchToggle?.addEventListener("click", () => {
-    const willOpen = searchPanel.hidden;
+  if (searchToggle && searchPanel) {
+    searchToggle.addEventListener("click", () => {
+      const willOpen = searchPanel.hidden;
 
-    searchPanel.hidden = !willOpen;
+      searchPanel.hidden = !willOpen;
 
-    searchToggle.setAttribute(
-      "aria-expanded",
-      String(willOpen)
-    );
+      searchToggle.setAttribute(
+        "aria-expanded",
+        String(willOpen)
+      );
 
-    searchToggle.setAttribute(
-      "aria-label",
-      willOpen ? "검색 닫기" : "검색 열기"
-    );
+      searchToggle.setAttribute(
+        "aria-label",
+        willOpen ? "검색 닫기" : "검색 열기"
+      );
 
-    if (willOpen) {
-      searchInput?.focus();
-    }
-  });
-
-  searchForm?.addEventListener("submit", event => {
-    event.preventDefault();
-
-    const keyword = searchInput.value.trim();
-
-    if (!keyword) {
-      showToast("검색어를 입력해 주세요.");
-      searchInput.focus();
-      return;
-    }
-
-    showToast("현재 검색 기능은 시연용입니다.");
-  });
-
-  // ========== 시연용 링크 안내 ==========
-
-  document.querySelectorAll(".demo-link").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      showToast("해당 페이지는 아직 제작되지 않았습니다.");
+      if (willOpen) {
+        searchPanel.querySelector("input")?.focus();
+      }
     });
-  });
+  }
 
-  // ========== 알림 메시지 ==========
+
+  /* ==============================
+     5. 시연용 알림 메시지
+  ============================== */
 
   const toast = document.getElementById("toast");
-  let toastTimer = null;
+  let toastTimeout = null;
 
   function showToast(message) {
     if (!toast) return;
@@ -203,30 +249,65 @@ document.addEventListener("DOMContentLoaded", () => {
     toast.textContent = message;
     toast.classList.add("show");
 
-    if (toastTimer !== null) {
-      clearTimeout(toastTimer);
+    if (toastTimeout !== null) {
+      clearTimeout(toastTimeout);
     }
 
-    toastTimer = setTimeout(() => {
+    toastTimeout = setTimeout(() => {
       toast.classList.remove("show");
-    }, 2800);
+    }, 2600);
   }
 
-  // ========== ESC 키로 메뉴 / 검색창 닫기 ==========
+  // 아직 제작되지 않은 상세 페이지
+  document.querySelectorAll(".demo-link").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+
+      showToast("해당 상세 페이지는 아직 제작되지 않았습니다.");
+    });
+  });
+
+  // 시연용 검색 폼
+  document.querySelectorAll(".demo-form").forEach(form => {
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const input = form.querySelector("input");
+
+      if (!input || !input.value.trim()) {
+        showToast("검색어를 입력해 주세요.");
+        input?.focus();
+        return;
+      }
+
+      showToast("검색 기능은 현재 시연용입니다.");
+    });
+  });
+
+
+  /* ==============================
+     6. ESC 키로 메뉴 닫기
+  ============================== */
 
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
 
-    if (searchPanel && !searchPanel.hidden) {
-      searchPanel.hidden = true;
-      searchToggle?.setAttribute("aria-expanded", "false");
-      searchToggle?.setAttribute("aria-label", "검색 열기");
+    if (mainNav) {
+      mainNav.classList.remove("open");
     }
 
-    if (mainNav?.classList.contains("open")) {
-      mainNav.classList.remove("open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      menuToggle?.setAttribute("aria-label", "메뉴 열기");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "메뉴 열기");
+    }
+
+    if (searchPanel) {
+      searchPanel.hidden = true;
+    }
+
+    if (searchToggle) {
+      searchToggle.setAttribute("aria-expanded", "false");
+      searchToggle.setAttribute("aria-label", "검색 열기");
     }
   });
 
