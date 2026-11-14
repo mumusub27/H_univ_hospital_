@@ -1,314 +1,269 @@
 
-/* ========================================
-   H UNIVERSITY HOSPITAL v2
-   MAIN JAVASCRIPT
-======================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  /* ===== MAIN NAVIGATION ===== */
+  const nav = document.getElementById("mainNav");
+  const menuToggle = document.getElementById("menuToggle");
+  const navItems = [...document.querySelectorAll(".nav-item")];
+  const mobileQuery = window.matchMedia("(max-width:800px)");
+  let closeTimer = null;
 
-document.addEventListener("DOMContentLoaded", function () {
+  function closeDropdowns() {
+    clearTimeout(closeTimer);
+    navItems.forEach(item => {
+      item.classList.remove("open");
+      item.querySelector(".nav-trigger")
+        .setAttribute("aria-expanded", "false");
+    });
+  }
 
-  /* ==============================
-     1. 메인 배너 슬라이드
-  ============================== */
+  function openDropdown(item) {
+    clearTimeout(closeTimer);
+    navItems.forEach(other => {
+      const active = other === item;
+      other.classList.toggle("open", active);
+      other.querySelector(".nav-trigger")
+        .setAttribute("aria-expanded", String(active));
+    });
+  }
 
-  const slides = Array.from(
-    document.querySelectorAll(".hero-slide")
-  );
+  navItems.forEach(item => {
+    const trigger = item.querySelector(".nav-trigger");
 
-  const dots = Array.from(
-    document.querySelectorAll(".slide-dot")
-  );
+    // PC: 마우스를 올리면 드롭다운 표시
+    item.addEventListener("mouseenter", () => {
+      if (!mobileQuery.matches) openDropdown(item);
+    });
 
-  const slideCounter = document.getElementById("slideCounter");
-  const prevButton = document.getElementById("prevSlide");
-  const nextButton = document.getElementById("nextSlide");
-  const pauseButton = document.getElementById("pauseSlide");
+    // PC: 메뉴에서 마우스가 빠져나가면 닫기
+    item.addEventListener("mouseleave", () => {
+      if (!mobileQuery.matches) {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(closeDropdowns, 180);
+      }
+    });
 
-  let currentSlide = 0;
+    // PC 키보드 / 모바일 터치
+    trigger.addEventListener("click", () => {
+      const wasOpen = item.classList.contains("open");
+      if (wasOpen) closeDropdowns();
+      else openDropdown(item);
+    });
+
+    // 키보드 접근
+    item.addEventListener("focusin", () => {
+      if (!mobileQuery.matches) openDropdown(item);
+    });
+  });
+
+  // 메뉴 바깥을 누르면 닫기
+  document.addEventListener("pointerdown", event => {
+    if (!nav.contains(event.target) &&
+        !menuToggle.contains(event.target)) {
+      closeDropdowns();
+    }
+  });
+
+  // 모바일 햄버거 메뉴
+  menuToggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("mobile-open");
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute(
+      "aria-label",
+      open ? "전체 메뉴 닫기" : "전체 메뉴 열기"
+    );
+    if (!open) closeDropdowns();
+  });
+
+  // 화면 크기 변경 시 초기화
+  mobileQuery.addEventListener("change", () => {
+    closeDropdowns();
+    nav.classList.remove("mobile-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+
+  // PC에서 메뉴 영역을 완전히 벗어나면 닫기
+  nav.addEventListener("mouseleave", () => {
+    if (!mobileQuery.matches) {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(closeDropdowns, 180);
+    }
+  });
+
+  /* ===== MAIN HERO SLIDER ===== */
+  const slides = [...document.querySelectorAll(".hero-slide")];
+  const dots = [...document.querySelectorAll(".slide-dot")];
+  const counter = document.getElementById("slideCounter");
+  const prev = document.getElementById("prevSlide");
+  const next = document.getElementById("nextSlide");
+  const pause = document.getElementById("pauseSlide");
+
+  let current = 0;
+  let playing = !window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   let slideTimer = null;
-  let isPlaying = true;
-
-  // ★ 자동 전환 간격: 5000ms = 5초
-  const SLIDE_INTERVAL = 5000;
+  const INTERVAL = 5000;
 
   function showSlide(index) {
-    if (slides.length === 0) return;
-
-    currentSlide = (index + slides.length) % slides.length;
+    if (!slides.length) return;
+    current = (index + slides.length) % slides.length;
 
     slides.forEach((slide, i) => {
-      const active = i === currentSlide;
-
+      const active = i === current;
       slide.classList.toggle("active", active);
       slide.setAttribute("aria-hidden", String(!active));
-
-      // 숨겨진 슬라이드 링크는 키보드 탭 이동에서 제외
       slide.querySelectorAll("a").forEach(link => {
         link.tabIndex = active ? 0 : -1;
       });
     });
 
     dots.forEach((dot, i) => {
-      const active = i === currentSlide;
-
+      const active = i === current;
       dot.classList.toggle("active", active);
-      dot.setAttribute(
-        "aria-current",
-        active ? "true" : "false"
-      );
+      dot.setAttribute("aria-current", String(active));
     });
 
-    if (slideCounter) {
-      const current = String(currentSlide + 1).padStart(2, "0");
-      const total = String(slides.length).padStart(2, "0");
-
-      slideCounter.textContent = `${current} / ${total}`;
+    if (counter) {
+      counter.textContent =
+        String(current + 1).padStart(2, "0") +
+        " / " + String(slides.length).padStart(2, "0");
     }
   }
 
-  function stopAutoSlide() {
-    if (slideTimer !== null) {
-      clearInterval(slideTimer);
-      slideTimer = null;
+  function startSlider() {
+    clearInterval(slideTimer);
+    slideTimer = null;
+    if (playing && slides.length > 1) {
+      slideTimer = setInterval(() => {
+        showSlide(current + 1);
+      }, INTERVAL);
     }
-  }
-
-  function startAutoSlide() {
-    stopAutoSlide();
-
-    if (!isPlaying || slides.length <= 1) return;
-
-    slideTimer = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, SLIDE_INTERVAL);
   }
 
   function moveSlide(direction) {
-    showSlide(currentSlide + direction);
-    startAutoSlide();
+    showSlide(current + direction);
+    startSlider();
   }
 
-  // 이전 / 다음 버튼
-  if (prevButton) {
-    prevButton.addEventListener("click", () => {
-      moveSlide(-1);
-    });
-  }
+  prev?.addEventListener("click", () => moveSlide(-1));
+  next?.addEventListener("click", () => moveSlide(1));
 
-  if (nextButton) {
-    nextButton.addEventListener("click", () => {
-      moveSlide(1);
-    });
-  }
-
-  // 하단 슬라이드 인디케이터
   dots.forEach(dot => {
     dot.addEventListener("click", () => {
-      const index = Number(dot.dataset.slide);
-
-      if (Number.isInteger(index)) {
-        showSlide(index);
-        startAutoSlide();
-      }
+      showSlide(Number(dot.dataset.slide));
+      startSlider();
     });
   });
 
-  function updatePauseButton() {
-    if (!pauseButton) return;
-
-    pauseButton.textContent = isPlaying ? "Ⅱ" : "▶";
-    pauseButton.setAttribute(
+  function updatePause() {
+    if (!pause) return;
+    pause.textContent = playing ? "Ⅱ" : "▶";
+    pause.setAttribute(
       "aria-label",
-      isPlaying ? "슬라이드 일시정지" : "슬라이드 재생"
+      playing ? "슬라이드 일시정지" : "슬라이드 재생"
     );
   }
 
-  // 재생 / 일시정지
-  if (pauseButton) {
-    pauseButton.addEventListener("click", () => {
-      isPlaying = !isPlaying;
-      updatePauseButton();
-      startAutoSlide();
-    });
-  }
+  pause?.addEventListener("click", () => {
+    playing = !playing;
+    updatePause();
+    startSlider();
+  });
 
-  // 움직임 최소화 설정 존중
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (prefersReducedMotion) {
-    isPlaying = false;
-  }
-
-  // 초기 실행
   showSlide(0);
-  updatePauseButton();
-  startAutoSlide();
+  updatePause();
+  startSlider();
 
-
-  /* ==============================
-     2. 병원 소식 탭 전환
-  ============================== */
-
-  const newsTabs = document.querySelectorAll(".news-tab");
-  const newsPanels = document.querySelectorAll(".news-panel");
+  /* ===== NEWS TABS ===== */
+  const newsTabs = [...document.querySelectorAll(".news-tab")];
+  const newsPanels = [...document.querySelectorAll(".news-panel")];
 
   newsTabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      const targetId = tab.dataset.tab;
-
-      newsTabs.forEach(item => {
-        const active = item === tab;
-
-        item.classList.toggle("active", active);
-        item.setAttribute("aria-selected", String(active));
+      const target = tab.dataset.tab;
+      newsTabs.forEach(t => {
+        const active = t === tab;
+        t.classList.toggle("active", active);
+        t.setAttribute("aria-selected", String(active));
       });
-
       newsPanels.forEach(panel => {
-        const active = panel.id === targetId;
-
+        const active = panel.id === target;
         panel.classList.toggle("active", active);
         panel.hidden = !active;
       });
     });
   });
 
-
-  /* ==============================
-     3. 모바일 메뉴
-  ============================== */
-
-  const menuToggle = document.getElementById("menuToggle");
-  const mainNav = document.getElementById("mainNav");
-
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "메뉴 닫기" : "메뉴 열기"
-      );
-    });
-
-    mainNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "메뉴 열기");
-      });
-    });
-  }
-
-
-  /* ==============================
-     4. 검색창 열기 / 닫기
-  ============================== */
-
+  /* ===== SEARCH ===== */
   const searchToggle = document.getElementById("searchToggle");
   const searchPanel = document.getElementById("searchPanel");
 
-  if (searchToggle && searchPanel) {
-    searchToggle.addEventListener("click", () => {
-      const willOpen = searchPanel.hidden;
+  searchToggle?.addEventListener("click", () => {
+    const open = searchPanel.hidden;
+    searchPanel.hidden = !open;
+    searchToggle.setAttribute("aria-expanded", String(open));
+    searchToggle.setAttribute(
+      "aria-label",
+      open ? "검색 닫기" : "검색 열기"
+    );
+    if (open) searchPanel.querySelector("input")?.focus();
+  });
 
-      searchPanel.hidden = !willOpen;
-
-      searchToggle.setAttribute(
-        "aria-expanded",
-        String(willOpen)
-      );
-
-      searchToggle.setAttribute(
-        "aria-label",
-        willOpen ? "검색 닫기" : "검색 열기"
-      );
-
-      if (willOpen) {
-        searchPanel.querySelector("input")?.focus();
-      }
-    });
-  }
-
-
-  /* ==============================
-     5. 시연용 알림 메시지
-  ============================== */
-
+  /* ===== TOAST & DEMO LINKS ===== */
   const toast = document.getElementById("toast");
-  let toastTimeout = null;
+  let toastTimer = null;
 
   function showToast(message) {
     if (!toast) return;
-
     toast.textContent = message;
     toast.classList.add("show");
-
-    if (toastTimeout !== null) {
-      clearTimeout(toastTimeout);
-    }
-
-    toastTimeout = setTimeout(() => {
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
       toast.classList.remove("show");
-    }, 2600);
+    }, 2700);
   }
 
-  // 아직 제작되지 않은 상세 페이지
+  // 세부 페이지가 아직 없는 링크만 임시 안내
+  document.querySelectorAll("a[data-pending]").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      showToast("해당 세부 페이지는 현재 준비 중입니다.");
+      if (mobileQuery.matches) {
+        closeDropdowns();
+        nav.classList.remove("mobile-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   document.querySelectorAll(".demo-link").forEach(link => {
     link.addEventListener("click", event => {
       event.preventDefault();
-
-      showToast("해당 상세 페이지는 아직 제작되지 않았습니다.");
+      showToast("해당 콘텐츠는 현재 준비 중입니다.");
     });
   });
 
-  // 시연용 검색 폼
   document.querySelectorAll(".demo-form").forEach(form => {
     form.addEventListener("submit", event => {
       event.preventDefault();
-
       const input = form.querySelector("input");
-
-      if (!input || !input.value.trim()) {
+      if (!input?.value.trim()) {
         showToast("검색어를 입력해 주세요.");
         input?.focus();
-        return;
+      } else {
+        showToast("검색 기능은 현재 시연용입니다.");
       }
-
-      showToast("검색 기능은 현재 시연용입니다.");
     });
   });
 
-
-  /* ==============================
-     6. ESC 키로 메뉴 닫기
-  ============================== */
-
+  /* ===== ESC ===== */
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
-
-    if (mainNav) {
-      mainNav.classList.remove("open");
-    }
-
-    if (menuToggle) {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "메뉴 열기");
-    }
-
-    if (searchPanel) {
-      searchPanel.hidden = true;
-    }
-
-    if (searchToggle) {
-      searchToggle.setAttribute("aria-expanded", "false");
-      searchToggle.setAttribute("aria-label", "검색 열기");
-    }
+    closeDropdowns();
+    nav.classList.remove("mobile-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    if (searchPanel) searchPanel.hidden = true;
+    searchToggle?.setAttribute("aria-expanded", "false");
   });
-
 });
+      
