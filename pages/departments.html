@@ -1,2 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>진료과 안내 | H대학교 병원</title>
+  <link rel="stylesheet" href="../css/subpage.css">
+  <script src="../js/departments.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner">본 사이트는 창작용 가상 대학병원 홈페이지입니다.</div>
 
- 
+  <!-- ===== 공통 헤더 ===== -->
+  <header class="sub-header">
+    <div class="sub-header-inner">
+      <a href="../index.html" class="sub-logo">
+        <span class="logo-mark">H<em>+</em></span>
+        <span class="logo-text">
+          <strong>H대학교 병원</strong>
+          <small>H UNIVERSITY HOSPITAL</small>
+        </span>
+      </a>
+
+      <nav class="sub-nav" aria-label="상단 메뉴">
+        <a href="departments.html">진료안내</a>
+        <a href="../index.html#facilities">이용안내</a>
+        <a href="../index.html#facilities">고객참여</a>
+        <a href="../index.html#news">병원소식</a>
+        <a href="../index.html#about">병원소개</a>
+      </nav>
+      <a class="home-button" href="../index.html">홈으로</a>
+    </div>
+  </header>
+
+  <!-- ===== 공통 경로 드롭다운 ===== -->
+  <nav class="breadcrumb-bar" aria-label="현재 페이지 경로">
+    <div class="breadcrumb-inner">
+      <a class="breadcrumb-home" href="../index.html" aria-label="홈">⌂</a>
+
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          진료안내 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html">진료안내</a>
+          <a href="../index.html#facilities">이용안내</a>
+          <a href="../index.html#facilities">고객참여</a>
+          <a href="../index.html#news">병원소식</a>
+          <a href="../index.html#about">병원소개</a>
+        </div>
+      </div>
+
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          진료과 안내 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html" aria-current="page">진료과 안내</a>
+          <a href="doctors.html" data-pending>의료진 찾기</a>
+          <a href="outpatient.html" data-pending>외래진료 안내</a>
+          <a href="admission.html" data-pending>입 · 퇴원 안내</a>
+          <a href="reservation.html" data-pending>진료예약</a>
+          <a href="reservation-check.html" data-pending>진료예약 조회</a>
+          <a href="medical-history.html" data-pending>진료내역 조회</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== 진료과 목록 본문 ===== -->
+  <main class="page-container">
+    <div class="page-heading">
+      <span class="eyebrow">MEDICAL DEPARTMENTS</span>
+      <h1>진료과 안내</h1>
+      <p>진료과를 검색하거나 원하는 진료과를 선택해 주세요.</p>
+    </div>
+
+    <section class="department-search" aria-label="진료과 검색">
+      <label for="departmentSearch">진료과 검색</label>
+      <div class="search-row">
+        <input id="departmentSearch" type="search"
+          placeholder="진료과명 또는 진료 분야를 입력하세요">
+        <button id="searchButton" type="button">검색</button>
+        <button id="resetButton" type="button" class="reset-button">초기화</button>
+      </div>
+    </section>
+
+    <div class="filter-tabs" id="categoryFilters" aria-label="진료과 분류">
+      <!-- JS가 분류 버튼을 생성 -->
+    </div>
+
+    <div id="departmentList">
+      <!-- JS가 진료과 카드를 생성 -->
+    </div>
+
+    <p class="empty-state" id="emptyState" hidden>
+      검색 결과가 없습니다. 다른 검색어를 입력해 주세요.
+    </p>
+  </main>
+
+  <!-- ===== 공통 푸터 ===== -->
+  <footer class="sub-footer">
+    <div class="footer-inner">
+      <strong>H대학교 병원</strong>
+      <p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p>
+      <small>© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</small>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+      
