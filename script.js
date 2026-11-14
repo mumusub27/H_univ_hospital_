@@ -194,20 +194,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ===== SEARCH ===== */
-  const searchToggle = document.getElementById("searchToggle");
-  const searchPanel = document.getElementById("searchPanel");
+  
+/* ===== SEARCH ===== */
+const searchToggle = document.getElementById("searchToggle");
+const searchPanel = document.getElementById("searchPanel");
 
-  searchToggle?.addEventListener("click", () => {
-    const open = searchPanel.hidden;
-    searchPanel.hidden = !open;
-    searchToggle.setAttribute("aria-expanded", String(open));
-    searchToggle.setAttribute(
-      "aria-label",
-      open ? "검색 닫기" : "검색 열기"
-    );
-    if (open) searchPanel.querySelector("input")?.focus();
-  });
+function closeSearch() {
+  if (!searchPanel) return;
+
+  searchPanel.hidden = true;
+
+  searchToggle?.setAttribute("aria-expanded", "false");
+  searchToggle?.setAttribute("aria-label", "검색 열기");
+}
+
+function openSearch() {
+  if (!searchPanel) return;
+
+  // 검색창을 열 때 기존 드롭다운 닫기
+  closeDropdowns();
+
+  // 모바일 메뉴도 닫기
+  nav.classList.remove("mobile-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+
+  searchPanel.hidden = false;
+
+  searchToggle?.setAttribute("aria-expanded", "true");
+  searchToggle?.setAttribute("aria-label", "검색 닫기");
+
+  searchPanel.querySelector("input")?.focus();
+}
+
+// 돋보기 클릭 시 열기 / 닫기
+searchToggle?.addEventListener("click", () => {
+  if (searchPanel.hidden) {
+    openSearch();
+  } else {
+    closeSearch();
+  }
+});
+
+// 검색창 바깥 영역 클릭 시 닫기
+document.addEventListener("pointerdown", (event) => {
+  if (!searchPanel || searchPanel.hidden) return;
+
+  const clickedSearchPanel =
+    searchPanel.contains(event.target);
+
+  const clickedSearchButton =
+    searchToggle.contains(event.target);
+
+  if (!clickedSearchPanel && !clickedSearchButton) {
+    closeSearch();
+  }
+});
+
 
   /* ===== TOAST & DEMO LINKS ===== */
   const toast = document.getElementById("toast");
