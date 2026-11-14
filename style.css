@@ -302,3 +302,28 @@ button{cursor:pointer}
     padding-right: 5px;
   }
 }
+
+
+/* 퀵메뉴 5개 균등 배치 */
+.quick-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+/* 태블릿 */
+@media (max-width: 800px) {
+  .quick-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 모바일 */
+@media (max-width: 550px) {
+  .quick-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-card:last-child {
+    grid-column: 1 / -1;
+    border-right: 0;
+  }
+}
