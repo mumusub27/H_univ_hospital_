@@ -239,16 +239,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const card = makeElement("a", "department-card");
           card.href = `department-detail.html?id=${encodeURIComponent(dept.id)}`;
 
-          const top = makeElement("div");
-          top.appendChild(makeElement("strong", "", dept.name));
-          top.appendChild(makeElement("p", "", dept.summary));
+          // 진료과 카드: 이름만 표시
+         const title = makeElement("strong", "", dept.name);
 
-          const bottom = makeElement("div", "card-bottom");
-          bottom.appendChild(makeElement("span", "", "진료과 자세히 보기"));
-          bottom.appendChild(makeElement("span", "card-arrow", "↗"));
-
-          card.append(top, bottom);
-          grid.appendChild(card);
+         card.appendChild(title);
+         grid.appendChild(card);
         });
 
         section.appendChild(grid);
