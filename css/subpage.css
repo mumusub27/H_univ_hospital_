@@ -573,3 +573,18 @@ button { cursor: pointer; }
   }
 }
       
+/* ===== 진료과 카드 간결한 디자인 ===== */
+
+.department-card {
+  min-height: 120px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.department-card strong {
+  font-size: 20px;
+  font-weight: 700;
+}
