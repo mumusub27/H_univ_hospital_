@@ -291,3 +291,14 @@ button{cursor:pointer}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
       
+/* PC 상단 메뉴 간격 조정 */
+@media (min-width: 801px) {
+  .main-nav {
+    gap: clamp(20px, 2.8vw, 40px);
+  }
+
+  .nav-trigger {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
