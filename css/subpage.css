@@ -576,8 +576,8 @@ button { cursor: pointer; }
 /* ===== 진료과 카드 간결한 디자인 ===== */
 
 .department-card {
-  min-height: 120px;
-  padding: 25px;
+  min-height: 150px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -588,3 +588,55 @@ button { cursor: pointer; }
   font-size: 20px;
   font-weight: 700;
 }
+
+/* ===== 진료과 카드 크기 최종 조정 ===== */
+
+/* PC: 한 줄에 4개 */
+.department-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.department-card {
+  min-height: 150px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.department-card strong {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* 태블릿: 한 줄에 3개 */
+@media (max-width: 950px) {
+  .department-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 작은 태블릿: 한 줄에 2개 */
+@media (max-width: 650px) {
+  .department-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 모바일: 한 줄에 2개 유지 */
+@media (max-width: 400px) {
+  .department-grid {
+    gap: 10px;
+  }
+
+  .department-card {
+    min-height: 110px;
+    padding: 12px;
+  }
+
+  .department-card strong {
+    font-size: 15px;
+  }
+}
+
