@@ -598,7 +598,7 @@ button { cursor: pointer; }
 }
 
 .department-card {
-  min-height: 150px;
+  min-height: 180px;
   padding: 20px;
   align-items: center;
   justify-content: center;
