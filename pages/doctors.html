@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>의료진 찾기 | H대학교 병원</title>
+  <link rel="stylesheet" href="../css/subpage.css">
+
+  <script src="../js/subpage-header.js" defer></script>
+  <script src="../js/departments.js" defer></script>
+  <script src="../js/doctors-data.js" defer></script>
+  <script src="../js/doctors-page.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner">
+    본 사이트는 창작용 가상 대학병원 홈페이지입니다.
+  </div>
+
+  <!-- 공통 헤더 -->
+  <div id="subpageHeader"></div>
+
+  <!-- 페이지 경로 -->
+  <nav class="breadcrumb-bar" aria-label="현재 페이지 경로">
+    <div class="breadcrumb-inner">
+      <a class="breadcrumb-home" href="../index.html" aria-label="홈">⌂</a>
+
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          진료안내 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html">진료안내</a>
+          <a href="../index.html#facilities">이용안내</a>
+          <a href="../index.html#facilities">고객참여</a>
+          <a href="../index.html#news">병원소식</a>
+          <a href="../index.html#about">병원소개</a>
+        </div>
+      </div>
+
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          의료진 찾기 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html">진료과 안내</a>
+          <a href="doctors.html">의료진 찾기</a>
+          <a href="outpatient.html" data-pending>외래진료 안내</a>
+          <a href="admission.html" data-pending>입 · 퇴원 안내</a>
+          <a href="reservation.html" data-pending>진료예약</a>
+          <a href="reservation-check.html" data-pending>진료예약 조회</a>
+          <a href="medical-history.html" data-pending>진료내역 조회</a>
+        </div>
+      </div>
+
+      <span class="breadcrumb-current">의료진 찾기</span>
+    </div>
+  </nav>
+
+  <main class="page-container doctors-page">
+    <div class="doctors-page-heading">
+      <span class="eyebrow">MEDICAL STAFF</span>
+      <h1>의료진 찾기</h1>
+      <p>진료과 또는 의료진 이름으로 검색해 보세요.</p>
+    </div>
+
+    <!-- ===== 검색 ===== -->
+    <div class="doctor-search-panel">
+      <label for="doctorDepartment">진료과 선택</label>
+      <select id="doctorDepartment">
+        <option value="">전체 진료과</option>
+      </select>
+
+      <label for="doctorSearch">의료진 검색</label>
+      <input
+        id="doctorSearch"
+        type="search"
+        placeholder="의료진 이름 또는 진료분야 검색"
+      >
+
+      <button id="doctorSearchButton" type="button">
+        검색
+      </button>
+      <button id="doctorResetButton" type="button">
+        초기화
+      </button>
+    </div>
+
+    <!-- ===== 결과 ===== -->
+    <div class="doctor-result-heading">
+      <h2>의료진 검색 결과</h2>
+      <p id="doctorResultCount" aria-live="polite"></p>
+    </div>
+
+    <div id="doctorList" class="doctor-list"></div>
+
+    <p id="doctorEmpty" class="doctor-empty" hidden>
+      검색 조건에 맞는 의료진이 없습니다.
+    </p>
+  </main>
+
+  <footer class="sub-footer">
+    <div class="footer-inner">
+      <strong>H대학교 병원</strong>
+      <p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p>
+      <small>© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</small>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+    
