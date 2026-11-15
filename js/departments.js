@@ -16,6 +16,9 @@ const departments = [
     name: "소화기내과",
     category: "내과계",
     summary: "위·장·간·췌장 질환",
+     // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "소화기내과는 식도, 위, 소장, 대장, 간, 담도 및 췌장에 발생하는 질환의 진단과 치료를 담당합니다.",
     specialties: ["위·식도 질환", "대장 질환", "간 질환", "췌담도 질환"],
     doctors: []
@@ -25,6 +28,9 @@ const departments = [
     name: "순환기내과",
     category: "내과계",
     summary: "심장 및 혈관 질환",
+     // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "", 
     description: "순환기내과는 심장과 혈관에 발생하는 다양한 질환을 진단하고 치료하는 진료과입니다.",
     specialties: ["고혈압", "협심증", "심부전", "부정맥"],
     doctors: []
@@ -34,6 +40,9 @@ const departments = [
     name: "호흡기내과",
     category: "내과계",
     summary: "폐·기관지 및 호흡기 질환",
+    // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "호흡기내과는 폐와 기관지 등 호흡기계에 발생하는 질환을 진단하고 치료합니다.",
     specialties: ["천식", "만성폐쇄성폐질환", "폐렴", "간질성 폐질환"],
     doctors: []
@@ -45,6 +54,9 @@ const departments = [
     name: "외과",
     category: "외과계",
     summary: "복부 및 일반 외과 질환",
+    // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "외과는 수술적 치료가 필요한 다양한 질환을 진단하고 치료합니다.",
     specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
     doctors: []
@@ -54,6 +66,9 @@ const departments = [
     name: "정형외과",
     category: "외과계",
     summary: "뼈·관절·근육 및 척추 질환",
+    // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "정형외과는 근골격계 질환과 외상을 진단하고 치료하는 진료과입니다.",
     specialties: ["관절 질환", "척추 질환", "골절", "스포츠 손상"],
     doctors: []
@@ -63,6 +78,9 @@ const departments = [
     name: "신경외과",
     category: "외과계",
     summary: "뇌·척수 및 신경계 외과 질환",
+    // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "신경외과는 뇌와 척수, 말초신경에 발생하는 수술적 치료 대상 질환을 진료합니다.",
     specialties: ["뇌혈관 질환", "뇌종양", "척추 질환", "신경계 외상"],
     doctors: []
@@ -74,6 +92,9 @@ const departments = [
     name: "소아청소년과",
     category: "기타 진료과",
     summary: "소아 및 청소년 건강관리",
+    // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "소아청소년과는 신생아부터 청소년까지의 성장과 발달, 질병의 진단 및 치료를 담당합니다.",
     specialties: ["성장·발달", "소아 호흡기 질환", "예방접종", "소아 일반진료"],
     doctors: []
@@ -83,6 +104,9 @@ const departments = [
     name: "산부인과",
     category: "기타 진료과",
     summary: "여성 건강 및 임신·출산",
+      // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "산부인과는 여성 생식기 질환과 임신, 출산에 관한 진료를 담당합니다.",
     specialties: ["산전관리", "부인과 질환", "여성 건강", "임신·출산"],
     doctors: []
@@ -92,6 +116,9 @@ const departments = [
     name: "피부과",
     category: "기타 진료과",
     summary: "피부·모발·손발톱 질환",
+      // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "피부과는 피부와 모발, 손발톱에 발생하는 다양한 질환을 진단하고 치료합니다.",
     specialties: ["피부염", "여드름", "탈모", "피부 감염"],
     doctors: []
@@ -101,6 +128,9 @@ const departments = [
     name: "정신건강의학과",
     category: "기타 진료과",
     summary: "정신건강 및 정서·행동 문제",
+      // ★ 진료과 픽토그램 이미지
+     // 이미지가 아직 없다면 빈 문자열로 유지
+    icon: "",
     description: "정신건강의학과는 다양한 정신건강 문제를 평가하고 치료하는 진료과입니다.",
     specialties: ["우울장애", "불안장애", "수면장애", "정신건강 평가"],
     doctors: []
@@ -207,7 +237,35 @@ document.addEventListener("DOMContentLoaded", () => {
         filterContainer.appendChild(button);
       });
     }
-
+      
+   /* ==========================================
+      진료과 픽토그램 생성
+      - 목록 카드와 상세 페이지에서 공통 사용
+      - 이미지가 없으면 빈 영역 유지
+      ========================================== */
+   
+   function createDepartmentIcon(dept, location = "card") {
+     const wrapper = document.createElement("div");
+   
+     wrapper.className = `department-icon department-icon--${location}`;
+   
+     if (dept.icon) {
+       const img = document.createElement("img");
+   
+       img.src = dept.icon;
+       img.alt = "";
+       img.loading = "lazy";
+       img.decoding = "async";
+   
+       // 이미지 로딩에 실패해도 레이아웃 유지
+       img.addEventListener("error", () => {
+         img.remove();
+       });
+       wrapper.appendChild(img);
+     }
+     return wrapper;
+   }
+     
     function renderDepartments() {
       const query = searchInput.value.trim().toLocaleLowerCase("ko");
       listContainer.replaceChildren();
@@ -239,11 +297,19 @@ document.addEventListener("DOMContentLoaded", () => {
           const card = makeElement("a", "department-card");
           card.href = `department-detail.html?id=${encodeURIComponent(dept.id)}`;
 
-          // 진료과 카드: 이름만 표시
+          
+         // ===== 진료과 카드 내부 =====
+         
+         // 픽토그램 영역
+         const icon = createDepartmentIcon(dept, "card");
+         
+         // 진료과 이름
          const title = makeElement("strong", "", dept.name);
-
-         card.appendChild(title);
+         
+         // 아이콘 + 이름 순서로 배치
+         card.append(icon, title);
          grid.appendChild(card);
+
         });
 
         section.appendChild(grid);
