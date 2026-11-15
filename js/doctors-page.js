@@ -47,48 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== 공통 경로 드롭다운 ===== */
 
-  const crumbs = [...document.querySelectorAll(".crumb")];
-
-  function closeCrumbs() {
-    crumbs.forEach(crumb => {
-      crumb.classList.remove("open");
-      const button = crumb.querySelector(".crumb-button");
-      button?.setAttribute("aria-expanded", "false");
-    });
-  }
-
-  crumbs.forEach(crumb => {
-    const button = crumb.querySelector(".crumb-button");
-    if (!button) return;
-
-    button.addEventListener("click", () => {
-      const wasOpen = crumb.classList.contains("open");
-      closeCrumbs();
-
-      if (!wasOpen) {
-        crumb.classList.add("open");
-        button.setAttribute("aria-expanded", "true");
-      }
-    });
-  });
-
-  document.addEventListener("pointerdown", event => {
-    if (!event.target.closest(".crumb")) closeCrumbs();
-  });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closeCrumbs();
-  });
-
-  document.querySelectorAll(
-    ".breadcrumb-bar a[data-pending]"
-  ).forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      closeCrumbs();
-      showToast("해당 페이지는 현재 준비 중입니다.");
-    });
-  });
+  
 
   /* ===== 의료진 사진 ===== */
 
