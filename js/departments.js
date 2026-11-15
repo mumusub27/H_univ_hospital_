@@ -590,44 +590,92 @@ document.addEventListener("DOMContentLoaded", () => {
     specialtiesSection.appendChild(specialtyList);
     detailContainer.appendChild(specialtiesSection);
 
+     /* ===== 소속 의료진 ===== */
+     
+   const doctorsSection = makeElement("section", "detail-section");
+   doctorsSection.appendChild(
+     makeElement("h2", "", "소속 의료진")
+   );
+   
+   const doctorBox = makeElement("div", "department-doctor-grid");
+   
+   // 현재 진료과에 소속된 의료진 검색
+   const departmentDoctors =
+     typeof doctors !== "undefined"
+       ? doctors.filter(doctor => doctor.departmentId === dept.id)
+       : [];
+   
+   if (departmentDoctors.length > 0) {
+   
+     departmentDoctors.forEach(doctor => {
+   
+       const card = makeElement("a", "department-doctor-card");
+   
+       card.href =
+         `doctor-detail.html?id=${encodeURIComponent(doctor.id)}`;
+   
+       // 의료진 사진
+       const photo = makeElement("div", "department-doctor-photo");
+   
+       if (doctor.photo) {
+         const img = document.createElement("img");
+         img.src = doctor.photo;
+         img.alt = `${doctor.name} 의료진 사진`;
+         img.loading = "lazy";
+   
+         img.addEventListener("error", () => {
+           img.remove();
+         });
+   
+         photo.appendChild(img);
+       }
+   
+       // 의료진 정보
+       const info = makeElement("div", "department-doctor-info");
+   
+       info.appendChild(
+         makeElement("strong", "", doctor.name)
+       );
+   
+       info.appendChild(
+         makeElement("span", "", doctor.fields.join(", "))
+       );
+   
+       info.appendChild(
+         makeElement("span", "department-doctor-more", "상세보기 →")
+       );
+   
+       card.append(photo, info);
+       doctorBox.appendChild(card);
+   
+     });
+   
+   } else {
+   
+     doctorBox.appendChild(
+       makeElement(
+         "p",
+         "department-doctor-empty",
+         "등록된 의료진이 없습니다."
+       )
+     );
+   
+   }
+   
+   doctorsSection.appendChild(doctorBox);
+   
+   // 해당 진료과의 의료진 전체보기
+   const allDoctorsLink = makeElement(
+     "a",
+     "outline-button department-doctor-all",
+     "의료진 전체보기 →"
+   );
+   
+   allDoctorsLink.href =
+     `doctors.html?department=${encodeURIComponent(dept.id)}`;
+   
+   doctorsSection.appendChild(allDoctorsLink);
+   detailContainer.appendChild(doctorsSection);
 
-    /* ===== 소속 의료진 ===== */
 
-    const doctorsSection = makeElement(
-      "section",
-      "detail-section"
-    );
-
-    doctorsSection.appendChild(
-      makeElement("h2", "", "소속 의료진")
-    );
-
-    const doctorBox = makeElement(
-      "div",
-      "doctor-placeholder"
-    );
-
-    doctorBox.appendChild(
-      makeElement(
-        "p",
-        "",
-        "소속 의료진 정보는 추후 등록될 예정입니다."
-      )
-    );
-
-    const doctorLink = makeElement(
-      "a",
-      "outline-button",
-      "의료진 찾기 →"
-    );
-
-    doctorLink.href =
-      `doctors.html?department=${encodeURIComponent(dept.id)}`;
-
-    doctorBox.appendChild(doctorLink);
-    doctorsSection.appendChild(doctorBox);
-
-    detailContainer.appendChild(doctorsSection);
-  }
-});
-    
+   
