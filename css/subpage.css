@@ -1147,3 +1147,600 @@ button { cursor: pointer; }
   }
 }
     
+
+/* ==========================================
+   H대학교 병원 - 의료진 찾기 / 상세
+   ========================================== */
+
+.doctors-page {
+  padding-top: 65px;
+  padding-bottom: 100px;
+}
+
+.doctors-page-heading {
+  margin-bottom: 36px;
+}
+
+.doctors-page-heading h1,
+.doctor-detail-title h1 {
+  margin: 12px 0;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.doctors-page-heading p {
+  color: #777;
+  font-size: 16px;
+}
+
+/* ===== 검색 영역 ===== */
+
+.doctor-search-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 28px;
+  background: #f8f8f9;
+  border: 1px solid #e7e7e7;
+}
+
+.doctor-search-panel label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.doctor-search-panel select,
+.doctor-search-panel input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d7d7d7;
+  border-radius: 0;
+  background: #fff;
+  color: #333;
+  font: inherit;
+}
+
+.doctor-search-panel select {
+  min-width: 160px;
+}
+
+.doctor-search-panel input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.doctor-search-panel button {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid #800020;
+  background: #800020;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.doctor-search-panel #doctorResetButton {
+  background: #fff;
+  color: #555;
+  border-color: #ccc;
+}
+
+/* ===== 결과 ===== */
+
+.doctor-result-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 55px 0 22px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #333;
+}
+
+.doctor-result-heading h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.doctor-result-heading p {
+  margin: 0;
+  color: #800020;
+  font-weight: 700;
+}
+
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.doctor-empty {
+  padding: 70px 20px;
+  text-align: center;
+  color: #777;
+  border: 1px solid #ddd;
+}
+
+/* ==========================================
+   의료진 카드
+   ========================================== */
+
+.doctor-card {
+  padding: 36px;
+  border: 1px solid #dedede;
+  border-top: 3px solid #800020;
+  background: #fff;
+}
+
+/* 사진 + 기본 정보 */
+
+.doctor-profile {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
+  gap: 34px;
+}
+
+.doctor-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f1f1f3;
+}
+
+.doctor-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* 사진 미등록 상태 */
+
+.doctor-photo--empty {
+  position: relative;
+  background: #f0f0f2;
+}
+
+.doctor-photo--empty::before {
+  content: "";
+  position: absolute;
+  width: 28%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #d1d1d7;
+  top: 25%;
+  left: 36%;
+}
+
+.doctor-photo--empty::after {
+  content: "";
+  position: absolute;
+  width: 62%;
+  height: 36%;
+  border-radius: 55% 55% 0 0;
+  background: #d1d1d7;
+  bottom: 10%;
+  left: 19%;
+}
+
+.doctor-profile-info {
+  min-width: 0;
+}
+
+.doctor-profile-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 3px 0 18px;
+  border-bottom: 2px solid #555;
+}
+
+.doctor-profile-heading h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.doctor-department-name {
+  color: #800020;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 진료분야 / 클리닉 / 특이사항 */
+
+.doctor-info-row {
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.doctor-info-row h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.doctor-info-row p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.doctor-info-row--empty {
+  min-height: 70px;
+}
+
+.doctor-clinics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.doctor-clinic {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 13px;
+  border: 1px solid #800020;
+  border-radius: 20px;
+  color: #800020;
+  background: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+a.doctor-clinic:hover {
+  background: #800020;
+  color: #fff;
+}
+
+.doctor-clinic--static {
+  cursor: default;
+}
+
+/* ==========================================
+   외래 진료시간표
+   ========================================== */
+
+.doctor-card-schedule {
+  margin-top: 36px;
+}
+
+.doctor-card-schedule h3 {
+  margin: 0 0 15px;
+  font-size: 17px;
+}
+
+.doctor-schedule {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 15px;
+}
+
+.doctor-schedule th,
+.doctor-schedule td {
+  height: 48px;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.doctor-schedule thead th {
+  background: #f5f3f4;
+  font-weight: 700;
+}
+
+.doctor-schedule tbody th {
+  width: 16%;
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.schedule-dot {
+  color: #800020;
+  font-size: 17px;
+}
+
+.schedule-off {
+  color: #ccc;
+}
+
+/* ==========================================
+   예약 / 상세보기 버튼
+   ========================================== */
+
+.doctor-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.doctor-reserve,
+.doctor-detail-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55px;
+  padding: 12px 18px;
+  border-radius: 0;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: background .2s ease;
+}
+
+.doctor-reserve {
+  border: 1px solid #800020;
+  background: #800020;
+  color: #fff;
+  cursor: pointer;
+}
+
+.doctor-reserve:hover:not(:disabled) {
+  background: #620019;
+}
+
+.doctor-reserve--disabled,
+.doctor-reserve:disabled {
+  background: #bfc1c3;
+  border-color: #bfc1c3;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.doctor-detail-button {
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+}
+
+.doctor-detail-button:hover {
+  background: #f5f5f5;
+}
+
+/* ==========================================
+   의료진 상세 페이지
+   ========================================== */
+
+.doctor-detail-title {
+  margin-bottom: 35px;
+}
+
+.doctor-profile--detail {
+  padding: 38px;
+  border: 1px solid #ddd;
+  border-top: 3px solid #800020;
+  grid-template-columns: 230px minmax(0, 1fr);
+}
+
+.doctor-detail-schedule {
+  margin-top: 60px;
+}
+
+.doctor-detail-schedule h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+}
+
+.doctor-schedule-note {
+  margin: 15px 0 0;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#doctorDetail > .doctor-actions {
+  max-width: 600px;
+  margin: 35px 0 60px auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ===== 상세 페이지 탭 ===== */
+
+.doctor-tabs-section {
+  margin-top: 65px;
+  border-top: 1px solid #ddd;
+}
+
+.doctor-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid #ddd;
+}
+
+.doctor-tab {
+  position: relative;
+  min-height: 76px;
+  padding: 16px 10px;
+  border: 0;
+  background: #fff;
+  color: #555;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.doctor-tab.active {
+  color: #800020;
+  font-weight: 800;
+}
+
+.doctor-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #800020;
+}
+
+.doctor-tab-content {
+  min-height: 180px;
+  padding: 35px 20px;
+}
+
+.doctor-tab-empty {
+  margin: 30px 0;
+  color: #888;
+  text-align: center;
+}
+
+.doctor-tab-list {
+  margin: 0;
+  padding-left: 22px;
+  line-height: 2.2;
+  color: #444;
+}
+
+.doctor-tab-list a {
+  color: #800020;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ==========================================
+   반응형
+   ========================================== */
+
+@media (max-width: 900px) {
+  .doctor-card {
+    padding: 24px;
+  }
+
+  .doctor-profile,
+  .doctor-profile--detail {
+    grid-template-columns: 155px minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .doctor-profile--detail {
+    padding: 24px;
+  }
+
+  .doctor-profile-heading h2 {
+    font-size: 25px;
+  }
+
+  .doctor-actions {
+    grid-template-columns: 1fr 150px;
+  }
+}
+
+@media (max-width: 650px) {
+  .doctors-page {
+    padding-top: 40px;
+    padding-bottom: 65px;
+  }
+
+  .doctor-search-panel {
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .doctor-search-panel label {
+    width: 100%;
+  }
+
+  .doctor-search-panel select,
+  .doctor-search-panel input {
+    width: 100%;
+    flex: auto;
+  }
+
+  .doctor-search-panel button {
+    flex: 1;
+  }
+
+  .doctor-card {
+    padding: 18px;
+  }
+
+  .doctor-profile,
+  .doctor-profile--detail {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .doctor-profile--detail {
+    padding: 16px;
+  }
+
+  .doctor-profile-heading {
+    gap: 5px 10px;
+    padding-bottom: 12px;
+  }
+
+  .doctor-profile-heading h2 {
+    font-size: 22px;
+  }
+
+  .doctor-department-name {
+    font-size: 13px;
+  }
+
+  .doctor-info-row {
+    padding: 12px 0;
+  }
+
+  .doctor-info-row h3 {
+    font-size: 14px;
+  }
+
+  .doctor-info-row p {
+    font-size: 13px;
+  }
+
+  .doctor-clinic {
+    font-size: 12px;
+    padding: 4px 9px;
+  }
+
+  .doctor-card-schedule {
+    margin-top: 25px;
+  }
+
+  .doctor-schedule {
+    font-size: 13px;
+  }
+
+  .doctor-schedule th,
+  .doctor-schedule td {
+    padding: 5px 2px;
+    height: 42px;
+  }
+
+  .doctor-actions,
+  #doctorDetail > .doctor-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .doctor-reserve,
+  .doctor-detail-button {
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  .doctor-tab {
+    font-size: 13px;
+    min-height: 65px;
+  }
+
+  .doctor-tab-content {
+    padding: 25px 8px;
+  }
+}
+    
