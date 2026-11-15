@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
   header.querySelectorAll("a[data-pending]").forEach(link => {
     link.addEventListener("click", event => {
       event.preventDefault();
-      event.stopPropagation();
+      event.stopImmediatePropagation();
 
       closeDropdowns();
       if (!desktopQuery.matches) closeMobileMenu();
