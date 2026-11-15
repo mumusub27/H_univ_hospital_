@@ -624,14 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
     doctorLink.href =
       `doctors.html?department=${encodeURIComponent(dept.id)}`;
 
-    doctorLink.addEventListener("click", event => {
-      event.preventDefault();
-
-      showToast(
-        "의료진 찾기 페이지는 현재 제작 중입니다."
-      );
-    });
-
     doctorBox.appendChild(doctorLink);
     doctorsSection.appendChild(doctorBox);
 
