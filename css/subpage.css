@@ -999,3 +999,151 @@ button { cursor: pointer; }
   }
 }
     
+
+/* ==========================================
+   H대학교 병원 - 진료과 픽토그램
+   ========================================== */
+
+/* ===== 1. 공통 픽토그램 ===== */
+
+.department-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.department-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 이미지가 없는 상태에서도 공간 유지 */
+.department-icon.is-empty {
+  background: transparent;
+}
+
+
+/* ==========================================
+   2. 진료과 목록 카드
+   ========================================== */
+
+.department-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  min-height: 190px;
+  padding: 22px 15px;
+  text-align: center;
+}
+
+.department-icon--card {
+  width: 76px;
+  height: 76px;
+}
+
+.department-card strong {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+
+/* ==========================================
+   3. 진료과 상세 페이지 상단
+   ========================================== */
+
+.detail-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 250px;
+}
+
+/* 왼쪽 텍스트 영역 */
+.detail-hero-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 오른쪽 픽토그램 영역 */
+.department-icon--detail {
+  width: 210px;
+  height: 210px;
+  margin-left: auto;
+  margin-right: 35px;
+}
+
+/* 기존 제목과 설명 스타일 유지 */
+.detail-hero-copy h1 {
+  margin-top: 18px;
+}
+
+.detail-hero-copy p {
+  margin-top: 20px;
+}
+
+
+/* ==========================================
+   4. 반응형
+   ========================================== */
+
+@media (max-width: 900px) {
+  .department-icon--detail {
+    width: 160px;
+    height: 160px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .department-card {
+    min-height: 150px;
+    gap: 12px;
+    padding: 16px 10px;
+  }
+
+  .department-icon--card {
+    width: 58px;
+    height: 58px;
+  }
+
+  .department-card strong {
+    font-size: 16px;
+  }
+
+  .detail-hero {
+    gap: 15px;
+    min-height: 190px;
+  }
+
+  .department-icon--detail {
+    width: 110px;
+    height: 110px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .department-icon--card {
+    width: 48px;
+    height: 48px;
+  }
+
+  .department-card strong {
+    font-size: 14px;
+  }
+
+  .department-icon--detail {
+    width: 80px;
+    height: 80px;
+  }
+}
+    
