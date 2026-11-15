@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>의료진 상세 | H대학교 병원</title>
+  <link rel="stylesheet" href="../css/subpage.css">
+
+  <script src="../js/subpage-header.js" defer></script>
+  <script src="../js/departments.js" defer></script>
+  <script src="../js/doctors-data.js" defer></script>
+  <script src="../js/doctors-page.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner">
+    본 사이트는 창작용 가상 대학병원 홈페이지입니다.
+  </div>
+
+  <div id="subpageHeader"></div>
+
+  <nav class="breadcrumb-bar" aria-label="현재 페이지 경로">
+    <div class="breadcrumb-inner">
+      <a class="breadcrumb-home" href="../index.html" aria-label="홈">⌂</a>
+
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          진료안내 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html">진료안내</a>
+          <a href="../index.html#facilities">이용안내</a>
+          <a href="../index.html#facilities">고객참여</a>
+          <a href="../index.html#news">병원소식</a>
+          <a href="../index.html#about">병원소개</a>
+        </div>
+      </div>
+
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          의료진 찾기 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html">진료과 안내</a>
+          <a href="doctors.html">의료진 찾기</a>
+          <a href="outpatient.html" data-pending>외래진료 안내</a>
+          <a href="reservation.html" data-pending>진료예약</a>
+        </div>
+      </div>
+
+      <span class="breadcrumb-current" id="doctorBreadcrumb">
+        의료진 상세
+      </span>
+    </div>
+  </nav>
+
+  <main class="page-container doctors-page">
+    <div id="doctorDetail">
+      <!-- doctors-page.js에서 생성 -->
+    </div>
+
+    <div class="detail-bottom">
+      <a class="outline-button" href="doctors.html">
+        ← 의료진 목록으로
+      </a>
+    </div>
+  </main>
+
+  <footer class="sub-footer">
+    <div class="footer-inner">
+      <strong>H대학교 병원</strong>
+      <p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p>
+      <small>© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</small>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+    
