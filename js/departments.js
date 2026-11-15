@@ -29,7 +29,7 @@ const departments = [
     name: "순환기내과",
     category: "내과계",
     summary: "심장 및 혈관 질환",
-    icon: "",
+    icon: "../images/departments/cardiology.png",
     description: "순환기내과는 심장과 혈관에 발생하는 다양한 질환을 진단하고 치료하는 진료과입니다.",
     specialties: ["고혈압", "협심증", "심부전", "부정맥"],
     doctors: []
