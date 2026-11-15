@@ -20,7 +20,7 @@ const subpageMenus = [
         title: "진료과 / 의료진",
         links: [
           { name: "진료과 안내", href: "departments.html" },
-          { name: "의료진 찾기", href: "doctors.html", pending: true }
+          { name: "의료진 찾기", href: "doctors.html" }
         ]
       },
       {
