@@ -326,13 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
         openDropdown(item);
       }
     });
-
-    // 키보드 접근
-    trigger.addEventListener("focus", () => {
-      if (desktopQuery.matches) {
-        openDropdown(item);
-      }
-    });
   });
 
   if (menuButton) {
