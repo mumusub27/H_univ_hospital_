@@ -6,13 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .sort((a, b) =>
       b.date.localeCompare(a.date) || b.id - a.id
     );
-
-  const list = document.getElementById("newsList");
-  const form = document.getElementById("newsSearchForm");
-  const input = document.getElementById("newsSearchInput");
-  const pages = document.getElementById("newsPagination");
-  const count = document.getElementById("newsCount");
-
   
 console.log("=== 게시판 진단 ===");
 console.log("게시판 종류:", type);
