@@ -191,88 +191,9 @@ function createDepartmentIcon(dept, location = "card") {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ========================================
-     1. 페이지 경로 드롭다운
-     ======================================== */
-
-  const crumbs = [
-    ...document.querySelectorAll(".crumb")
-  ];
-
-  function closeCrumbs() {
-    crumbs.forEach(crumb => {
-      crumb.classList.remove("open");
-
-      const button = crumb.querySelector(".crumb-button");
-
-      if (button) {
-        button.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  crumbs.forEach(crumb => {
-    const button = crumb.querySelector(".crumb-button");
-    if (!button) return;
-
-    button.addEventListener("click", () => {
-      const wasOpen = crumb.classList.contains("open");
-
-      closeCrumbs();
-
-      if (!wasOpen) {
-        crumb.classList.add("open");
-        button.setAttribute("aria-expanded", "true");
-      }
-    });
-  });
-
-  document.addEventListener("pointerdown", event => {
-    if (!event.target.closest(".crumb")) {
-      closeCrumbs();
-    }
-  });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      closeCrumbs();
-    }
-  });
-
-
-  /* ========================================
-     2. 준비 중 페이지 안내
-     ======================================== */
-
-  const toast = document.getElementById("toast");
-  let toastTimer;
-
-  function showToast(message) {
-    if (!toast) return;
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2500);
-  }
-
-  // 공통 헤더 링크는 subpage-header.js에서 처리
-  // 여기서는 본문과 경로 메뉴 링크만 처리
-  document.querySelectorAll(
-    "a[data-pending]:not(.shared-dropdown a)"
-  ).forEach(link => {
-    if (link.closest("#subpageHeader")) return;
-
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      closeCrumbs();
-      showToast("해당 페이지는 현재 준비 중입니다.");
-    });
-  });
+ 
+  // 공통 드롭다운과 준비 중 링크는 subpage-header.js에서 관리합니다.
+  
 
 
   /* ========================================
