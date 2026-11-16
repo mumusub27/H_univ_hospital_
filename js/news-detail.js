@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('newsCategoryName').href = listLink.href;
   document.getElementById('detailHeading').textContent = meta.title;
   
+  const englishHeading = document.querySelector('.page-heading .eyebrow');
+  if (englishHeading) {
+    englishHeading.textContent = meta.english;
+  }
+
   /* ===== 상세 페이지 경로를 게시판 카테고리명으로 변경 ===== */
   const categoryCrumb = document.querySelector(
     ".breadcrumb-bar .crumb:last-child .crumb-button"
