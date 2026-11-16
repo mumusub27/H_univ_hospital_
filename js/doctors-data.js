@@ -16,7 +16,7 @@ const doctors = [
 
   /* ===== 1. 소화기내과 ===== */
   {
-    id: "kim-doyun",
+    id: "doctor-001",
     name: "김도윤",
     departmentId: "gastroenterology",
     photo: "",
@@ -33,7 +33,7 @@ const doctors = [
     news: []
   },
   {
-    id: "lee-seoyeon",
+    id: "doctor-002",
     name: "이서연",
     departmentId: "gastroenterology",
     photo: "",
@@ -51,7 +51,7 @@ const doctors = [
 
   /* ===== 2. 순환기내과 ===== */
   {
-    id: "park-junseo",
+    id: "doctor-003",
     name: "박준서",
     departmentId: "cardiology",
     photo: "",
@@ -68,7 +68,7 @@ const doctors = [
     news: []
   },
   {
-    id: "choi-yuna",
+    id: "doctor-004",
     name: "최유나",
     departmentId: "cardiology",
     photo: "",
@@ -86,7 +86,7 @@ const doctors = [
 
   /* ===== 3. 호흡기내과 ===== */
   {
-    id: "jung-hyunjin",
+    id: "doctor-005",
     name: "정현진",
     departmentId: "pulmonology",
     photo: "",
@@ -104,7 +104,7 @@ const doctors = [
 
   /* ===== 4. 외과 ===== */
   {
-    id: "kang-minjae",
+    id: "doctor-006",
     name: "강민재",
     departmentId: "general-surgery",
     photo: "",
@@ -122,8 +122,8 @@ const doctors = [
 
   /* ===== 5. 정형외과 ===== */
   {
-    id: "yoon-taeho",
-    name: "윤태호",
+    id: "doctor-007",
+    name: "추재현",
     departmentId: "orthopedics",
     photo: "",
     fields: ["무릎관절 질환", "퇴행성관절염", "스포츠 손상"],
@@ -141,8 +141,8 @@ const doctors = [
 
   /* ===== 6. 신경외과 ===== */
   {
-    id: "han-jihoon",
-    name: "한지훈",
+    id: "doctor-008",
+    name: "서건창",
     departmentId: "neurosurgery",
     photo: "",
     fields: ["뇌종양", "뇌혈관 질환", "두부 외상", "뇌수술"],
@@ -159,7 +159,7 @@ const doctors = [
 
   /* ===== 7. 소아청소년과 ===== */
   {
-    id: "seo-harin",
+    id: "doctor-009",
     name: "서하린",
     departmentId: "pediatrics",
     photo: "",
@@ -177,11 +177,11 @@ const doctors = [
 
   /* ===== 8. 산부인과 ===== */
   {
-    id: "oh-jieun",
-    name: "오지은",
+    id: "doctor-010",
+    name: "박병호",
     departmentId: "obgyn",
     photo: "",
-    fields: ["산전관리", "고위험 임신", "여성 건강", "일반 부인과"],
+    fields: ["산전관리", "고위험 임신", "여성 건강", ],
     clinics: [
       { name: "고위험임신 클리닉", url: "" }
     ],
@@ -195,7 +195,7 @@ const doctors = [
 
   /* ===== 9. 피부과 ===== */
   {
-    id: "baek-sujin",
+    id: "doctor-011",
     name: "백수진",
     departmentId: "dermatology",
     photo: "",
@@ -214,7 +214,7 @@ const doctors = [
 
   /* ===== 10. 정신건강의학과 ===== */
   {
-    id: "lim-eunwoo",
+    id: "doctor-012",
     name: "임은우",
     departmentId: "psychiatry",
     photo: "",
