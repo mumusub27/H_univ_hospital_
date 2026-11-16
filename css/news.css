@@ -1,0 +1,26 @@
+/* ★ 병원소식 게시판 전용 스타일: 기존 subpage.css를 변경하지 않습니다. */
+.news-page {max-width: 1120px;}
+.board-search {display:flex;justify-content:flex-end;gap:8px;margin:30px 0 42px;}
+.board-search input {width:min(390px,75%);min-height:48px;border:1px solid #ccc;padding:0 15px;outline:none;}
+.board-search input:focus {border-color:#800020;}
+.board-search button,.article-back {border:1px solid #800020;background:#800020;color:#fff;padding:10px 25px;font-weight:700;}
+.board-summary {margin-bottom:12px;color:#777;font-size:14px;}
+.board-list {border-top:2px solid #29272c;}
+.board-item {display:grid;grid-template-columns:90px minmax(0,1fr);align-items:center;gap:16px;padding:25px 20px;border-bottom:1px solid #ddd;min-height:118px;}
+.board-item:nth-child(odd){background:#faf9fa;}
+.board-number {text-align:center;color:#888;font-size:16px;}
+.board-copy{min-width:0;}
+.board-title {font-size:19px;font-weight:700;line-height:1.5;overflow-wrap:anywhere;}
+.board-title a:hover{color:#800020;text-decoration:underline;text-underline-offset:4px;}
+.news-disabled{color:#4b4b4b;cursor:default;}
+.board-meta,.article-meta {display:flex;gap:24px;flex-wrap:wrap;color:#888;font-size:14px;margin-top:12px;}
+.board-empty {padding:75px 20px;text-align:center;color:#888;border-bottom:1px solid #ddd;}
+.board-pagination {display:flex;justify-content:center;gap:8px;margin-top:38px;}
+.page-button {width:42px;height:42px;border:1px solid #ddd;background:white;color:#555;}
+.page-button.active,.page-button:hover {background:#800020;color:white;border-color:#800020;}
+.article-header{border-top:2px solid #29272c;border-bottom:1px solid #ddd;padding:30px 24px;}
+.article-header h2{font-size:clamp(22px,2.7vw,30px);margin:0;}
+.article-content{padding:55px 25px 80px;white-space:pre-wrap;min-height:260px;line-height:2;border-bottom:1px solid #ddd;overflow-wrap:anywhere;}
+.article-actions{display:flex;justify-content:center;margin-top:35px;}
+.article-back:hover{background:#570018;}
+@media(max-width:650px){.board-search{margin:22px 0 30px;}.board-search input{flex:1;min-width:0;width:auto;}.board-item{grid-template-columns:42px minmax(0,1fr);padding:19px 10px;gap:12px;min-height:100px;}.board-title{font-size:16px;}.board-meta{gap:15px;font-size:12px;}.article-header{padding:23px 10px;}.article-content{padding:35px 10px 60px;}}
