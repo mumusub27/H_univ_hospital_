@@ -45,9 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2600);
   }
 
-  /* ===== 공통 경로 드롭다운 ===== */
-
-  
+ 
 
   /* ===== 의료진 사진 ===== */
 
