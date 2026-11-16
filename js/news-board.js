@@ -21,7 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalPages = Math.ceil(filtered.length/10);
     pages.innerHTML = totalPages > 1 ? Array.from({length:totalPages},(_,i)=>`<button type="button" class="page-button ${page===i+1?'active':''}" data-page="${i+1}" aria-label="${i+1}페이지">${i+1}</button>`).join('') : '';
   }
-  form.addEventListener('submit', e => {e.preventDefault(); const q=input.value.trim().toLocaleLowerCase(); filtered=posts.filter(post=>post.title.toLocaleLowerCase().includes(q));page=1;render();});
-  pages.addEventListener('click',e=>{const button=e.target.closest('[data-page]');if(!button)return;page=Number(button.dataset.page);render();window.scrollTo({top:0,behavior:'smooth'});});
-  render();
+  
+  /* ===== 게시물 검색: 제목 + 본문 + 숨겨진 키워드 ===== */
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = input.value.trim().toLocaleLowerCase();
+    filtered = posts.filter(post => {
+      const searchableText = [
+        post.title || "",
+        post.content || "",
+        ...(post.keywords || [])
+      ].join(" ").toLocaleLowerCase();
+      return searchableText.includes(q);
+    });
+    page = 1;
+    render();
+  });
 });
