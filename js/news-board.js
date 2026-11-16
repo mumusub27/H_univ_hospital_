@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = document.getElementById("newsPagination");
   const count = document.getElementById("newsCount");
 
+  
+console.log("=== 게시판 진단 ===");
+console.log("게시판 종류:", type);
+console.log("NEWS_DATA:", window.NEWS_DATA);
+console.log("게시물 개수:", posts.length);
+console.log("목록 요소:", list);
+console.log("검색 요소:", form);
+console.log("페이지 요소:", pages);
+console.log("게시물 수 요소:", count);
+
+
   if (!list || !form || !input || !pages || !count) {
     console.error("게시판 HTML 요소를 찾을 수 없습니다.");
     return;
