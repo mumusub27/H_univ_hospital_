@@ -10,6 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
       return url?`<a href="${url}" class="news-row">${inner}</a>`:`<div class="news-row" style="cursor:default">${inner}</div>`;
     }).join('');
   });
-  const more=document.getElementById('newsMoreLink');
-  document.querySelectorAll('.news-tab').forEach(tab=>tab.addEventListener('click',()=>{if(more)more.href=`pages/${groups[tab.dataset.tab]||'notices'}.html`;}));
+  
+/* ===== 전체 소식 보기: 현재 탭의 게시판으로 이동 ===== */
+const more = document.getElementById("newsMoreLink");
+
+const boardLinks = {
+  notice: "pages/notices.html",
+  lecture: "pages/lectures.html",
+  press: "pages/press.html"
+};
+
+function updateMoreLink(tabName) {
+  if (!more) return;
+  more.href = boardLinks[tabName] || boardLinks.notice;
+}
+
+// 최초 화면에 선택된 탭 반영
+const initialTab = document.querySelector(".news-tab.active");
+updateMoreLink(initialTab?.dataset.tab || "notice");
+
+// 탭을 클릭할 때 링크 변경
+document.querySelectorAll(".news-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    updateMoreLink(tab.dataset.tab);
+  });
 });
+
