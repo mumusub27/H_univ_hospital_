@@ -78,9 +78,9 @@ const subpageMenus = [
       {
         title: "",
         links: [
-          { name: "공지사항", href: "notices.html", pending: true },
-          { name: "강좌안내", href: "lectures.html", pending: true },
-          { name: "언론보도", href: "press.html", pending: true }
+          { name: "공지사항", href: "notices.html"},
+          { name: "강좌안내", href: "lectures.html"},
+          { name: "언론보도", href: "press.html"}
         ]
       }
     ]
