@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const table = el("table", "doctor-schedule");
     table.setAttribute(
       "aria-label",
-      `${doctor.name} 의료진 외래 진료시간표`
+      `${doctor.name} 의료진 진료시간표`
     );
 
     const thead = document.createElement("thead");
@@ -245,7 +245,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return wrap;
   }
+   
+   /* ========================================
+   의료진 상세 전용 프로필
+   목록 카드와 다른 레이아웃
+   ======================================== */
 
+function createDetailProfile(doctor) {
+  const section = el("section", "doctor-detail-overview");
+
+  // 상단: 사진 + 진료과 + 이름
+  const top = el("div", "doctor-detail-top");
+
+  top.appendChild(createPhoto(doctor));
+
+  const identity = el("div", "doctor-detail-identity");
+
+  identity.appendChild(
+    el("p", "doctor-detail-department", departmentName(doctor))
+  );
+
+  // ★ 교수 호칭은 표시용이며 데이터와 별개
+  identity.appendChild(
+    el("h2", "", `${doctor.name} 교수`)
+  );
+
+  top.appendChild(identity);
+  section.appendChild(top);
+
+  // 전문분야
+  const fieldSection = el("div", "doctor-detail-field");
+
+  const fieldTitle = el("h3", "", "전문분야");
+  fieldSection.appendChild(fieldTitle);
+
+  fieldSection.appendChild(
+    el("p", "", doctor.fields.join(", "))
+  );
+
+  section.appendChild(fieldSection);
+
+  return section;
+}
   /* ===== 의료진 카드 ===== */
 
   function createDoctorCard(doctor) {
@@ -259,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     scheduleArea.appendChild(
-      el("h3", "", "외래 진료시간")
+      el("h3", "", "진료시간")
     );
 
     scheduleArea.appendChild(
@@ -426,9 +467,11 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     detailRoot.appendChild(title);
-    detailRoot.appendChild(
-      createProfile(doctor, true)
-    );
+
+   // ★ 상세 전용 프로필 사용
+   detailRoot.appendChild(
+     createDetailProfile(doctor)
+   );
 
     const scheduleSection = el(
       "section",
@@ -436,8 +479,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     scheduleSection.appendChild(
-      el("h2", "", "외래 진료일정")
-    );
+     el("h2", "", "진료일정")
+   );
 
     scheduleSection.appendChild(
       createSchedule(doctor)
