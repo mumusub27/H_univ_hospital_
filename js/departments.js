@@ -677,5 +677,7 @@ document.addEventListener("DOMContentLoaded", () => {
    doctorsSection.appendChild(allDoctorsLink);
    detailContainer.appendChild(doctorsSection);
 
+  }
+});
 
    
