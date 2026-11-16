@@ -16,6 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('newsCategoryName').textContent = meta.title;
   document.getElementById('newsCategoryName').href = listLink.href;
   document.getElementById('detailHeading').textContent = meta.title;
+  
+  /* ===== 상세 페이지 경로를 게시판 카테고리명으로 변경 ===== */
+  const categoryCrumb = document.querySelector(
+    ".breadcrumb-bar .crumb:last-child .crumb-button"
+  );
+  if (categoryCrumb) {
+    const categoryText = categoryCrumb.firstChild;
+    if (categoryText) {
+      categoryText.textContent = meta.title + " ";
+    }
+  }
   container.innerHTML = `<header class="article-header"><h2>${escapeHTML(post.title)}</h2><div class="article-meta"><span>${escapeHTML(post.author)}</span><time datetime="${escapeHTML(post.date)}">${escapeHTML(post.date)}</time></div></header><div class="article-content"></div>`;
   container.querySelector('.article-content').textContent = post.content;
 });
