@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     logo.innerHTML = `
       <span class="logo-mark">H<em>+</em></span>
       <span class="logo-text">
-        <strong>H대학교 병원</strong>
+        <strong>H대학교병원</strong>
         <small>H UNIVERSITY HOSPITAL</small>
       </span>
     `;
