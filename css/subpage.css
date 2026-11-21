@@ -1957,3 +1957,21 @@ a.doctor-clinic:hover {
     padding: 10px 18px 25px;
   }
 }
+
+
+/* ===== 버건디 경로 드롭다운 표시 보정 ===== */
+
+.breadcrumb-bar {
+  position: relative;
+  z-index: 110;
+  overflow: visible;
+}
+
+.breadcrumb-inner,
+.breadcrumb-bar .crumb {
+  overflow: visible;
+}
+
+.breadcrumb-bar .crumb-menu {
+  z-index: 111;
+}
