@@ -1,6 +1,6 @@
 
-const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
-const SUPABASE_ANON_KEY = "YOUR_LEGACY_ANON_KEY";
+const SUPABASE_URL = "https://hjmdvgydoiqhbqudeoxh.supabase.co/rest/v1/";
+const SUPABASE_ANON_KEY = "sb_publishable_nuMN69BnMZSeRlV8ITo7SQ_u_TIbthk";
 
 const API = `${SUPABASE_URL}/rest/v1/feedback_posts`;
 const RPC = `${SUPABASE_URL}/rest/v1/rpc/`;
