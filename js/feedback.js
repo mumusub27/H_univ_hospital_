@@ -220,6 +220,32 @@ document.addEventListener("DOMContentLoaded", () => {
       p_password: $("feedbackPassword").value
     };
 
+
+const validCategories = ["문의", "건의", "칭찬", "불편", "기타"];
+
+const checks = {
+  "문의 유형": validCategories.includes(payload.p_category),
+  "닉네임": payload.p_nickname.length >= 1 &&
+              payload.p_nickname.length <= 20,
+  "제목": payload.p_title.length >= 2 &&
+          payload.p_title.length <= 100,
+  "내용": payload.p_content.length >= 5 &&
+          payload.p_content.length <= 5000,
+  "비밀번호": payload.p_password.length >= 4 &&
+              payload.p_password.length <= 10
+};
+
+const invalid = Object.entries(checks)
+  .filter(([, valid]) => !valid)
+  .map(([name]) => name);
+
+if (invalid.length) {
+  $("feedbackMessage").textContent =
+    "입력 조건 불일치: " + invalid.join(", ");
+  return;
+}
+
+    
     if (payload.p_title.length < 2 ||
         payload.p_content.length < 5 ||
         payload.p_password.length < 4 ||
