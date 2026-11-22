@@ -48,7 +48,7 @@ const subpageMenus = [
       {
         title: "",
         links: [
-          { name: "오시는 길", href: "directions.html", pending: true },
+          { name: "오시는 길", href: "directions.html",},
           { name: "원내배치도", href: "floor-guide.html", pending: true },
           { name: "편의시설", href: "facilities.html", pending: true },
           { name: "면회안내", href: "visiting.html", pending: true }
