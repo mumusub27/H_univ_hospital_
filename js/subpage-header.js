@@ -26,8 +26,8 @@ const subpageMenus = [
       {
         title: "",
         links: [
-          { name: "외래진료 안내", href: "outpatient.html", pending: true },
-          { name: "입 · 퇴원 안내", href: "admission.html", pending: true }
+          { name: "외래진료 안내", href: "outpatient.html"},
+          { name: "입 · 퇴원 안내", href: "admission.html"}
         ]
       },
       {
@@ -48,10 +48,10 @@ const subpageMenus = [
       {
         title: "",
         links: [
-          { name: "오시는 길", href: "directions.html",},
+          { name: "오시는 길", href: "directions.html"},
           { name: "원내배치도", href: "floor-guide.html", pending: true },
           { name: "편의시설", href: "facilities.html", pending: true },
-          { name: "면회안내", href: "visiting.html", pending: true }
+          { name: "면회안내", href: "visiting.html"}
         ]
       }
     ]
@@ -93,9 +93,9 @@ const subpageMenus = [
       {
         title: "",
         links: [
-          { name: "인사말", href: "greeting.html", pending: true },
-          { name: "병원연혁", href: "history.html", pending: true },
-          { name: "조직도", href: "organization.html", pending: true }
+          { name: "인사말", href: "greeting.html"},
+          { name: "병원연혁", href: "history.html"},
+          { name: "조직도", href: "organization.html"}
         ]
       }
     ]
@@ -360,10 +360,10 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const categoryLinks = {
         "진료안내": "departments.html",
-        "이용안내": "../index.html#facilities",
+        "이용안내": "directions.html",
         "고객참여": "feedback.html",
         "병원소식": "notices.html",
-        "병원소개": "../index.html#about"
+        "병원소개": "greeting.html"
       };
       
       const normalizeLabel = text =>
