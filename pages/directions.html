@@ -1,6 +1,192 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>오시는 길 | H대학교병원</title><link rel="stylesheet" href="../css/subpage.css"><link rel="stylesheet" href="../css/guide.css"><script src="../js/subpage-header.js" defer></script></head>
-<body><div class="demo-banner">본 사이트는 가상 대학병원 홈페이지입니다.</div><div id="subpageHeader"></div>
-<nav class="breadcrumb-bar" aria-label="현재 페이지 경로"><div class="breadcrumb-inner"><a class="breadcrumb-home" href="../index.html" aria-label="홈">⌂</a><div class="crumb"><button class="crumb-button" type="button" aria-expanded="false">이용안내 <span class="crumb-arrow"></span></button><div class="crumb-menu"><a href="outpatient.html">진료안내</a><a href="directions.html">이용안내</a><a href="feedback.html">고객참여</a><a href="notices.html">병원소식</a><a href="greeting.html">병원소개</a></div></div><div class="crumb"><button class="crumb-button" type="button" aria-expanded="false">오시는 길 <span class="crumb-arrow"></span></button><div class="crumb-menu"><a href="directions.html">오시는 길</a><a href="visiting.html">면회안내</a></div></div></div></nav>
-<main class="page-container guide-page"><div class="page-heading"><span class="eyebrow">LOCATION & DIRECTIONS</span><h1>오시는 길</h1><p>H대학교병원의 위치와 교통편을 안내합니다.</p></div><section class="guide-section"><h2>병원 위치</h2><p class="guide-address">서울특별시 구로구 경인로 430</p><p class="guide-lead">H대학교병원 · 본관 / 서관 / 동관(장례식장)</p><div class="guide-map-placeholder" role="img" aria-label="지도 이미지 삽입 자리"><strong>MAP IMAGE</strong><span>지도 캡처 이미지 삽입 영역</span><span class="guide-small">이 영역을 &lt;img&gt; 태그로 교체하면 됩니다.</span></div><p class="guide-small">※ 지도 캡처를 사용할 경우 출처 및 이용 조건을 확인해 주세요.</p></section><section class="guide-section"><h2>대중교통 이용 안내</h2><div class="guide-transit"><div class="guide-transit-card"><h3>지하철</h3><p class="guide-lead">경인로 430을 목적지로 설정해 인근 지하철역과 출구를 확인해 주세요.</p><p class="guide-small">역명·출구·도보 시간은 실제 노선 확인 후 기입할 수 있도록 비워 두었습니다.</p></div><div class="guide-transit-card"><h3>버스</h3><p class="guide-lead">서울특별시 구로구 경인로 430 인근 정류장에서 하차 후 이동합니다.</p><p class="guide-small">정류장명과 버스 번호는 현행 교통정보 확인 후 입력해 주세요.</p></div></div></section><section class="guide-section"><h2>건물 안내</h2><table class="guide-table"><tr><th>본관</th><td>주요 진료 및 안내 시설 (세부 배치는 추후 입력)</td></tr><tr><th>서관</th><td>부속 진료·지원 시설 (세부 배치는 추후 입력)</td></tr><tr><th>동관</th><td>장례식장</td></tr></table></section></main>
-<footer class="sub-footer"><div class="footer-inner"><strong>H대학교 병원</strong><p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p><small>© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</small></div></footer><div id="toast" class="toast" role="status" aria-live="polite"></div></body></html>
+<html lang="ko">
+ <!-- 페이지 설정: 제목, CSS 및 공통 헤더 JS 경로를 수정하는 곳 -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   오시는 길 | H대학교병원
+  </title>
+  <link href="../css/subpage.css" rel="stylesheet"/>
+  <link href="../css/guide.css" rel="stylesheet"/>
+  <script defer="" src="../js/subpage-header.js">
+  </script>
+ </head>
+ <body>
+  <!-- ===== 페이지 상단: 안내 배너 / 헤더 / 브레드크럼 ===== -->
+  <div class="demo-banner">
+   본 사이트는 가상 대학병원 홈페이지입니다.
+  </div>
+  <!-- ===== 공통 헤더: js/subpage-header.js에서 생성 ===== -->
+  <div id="subpageHeader">
+  </div>
+  <!-- ===== 상단 버건디 경로 메뉴 ===== -->
+  <nav aria-label="현재 페이지 경로" class="breadcrumb-bar">
+   <div class="breadcrumb-inner">
+    <a aria-label="홈" class="breadcrumb-home" href="../index.html">
+     ⌂
+    </a>
+    <div class="crumb">
+     <button aria-expanded="false" class="crumb-button" type="button">
+      이용안내
+      <span class="crumb-arrow">
+      </span>
+     </button>
+     <!-- 드롭다운 링크: 공통 JS 설정에 따라 변경될 수 있습니다 -->
+     <div class="crumb-menu">
+      <a href="outpatient.html">
+       진료안내
+      </a>
+      <a href="directions.html">
+       이용안내
+      </a>
+      <a href="feedback.html">
+       고객참여
+      </a>
+      <a href="notices.html">
+       병원소식
+      </a>
+      <a href="greeting.html">
+       병원소개
+      </a>
+     </div>
+    </div>
+    <div class="crumb">
+     <button aria-expanded="false" class="crumb-button" type="button">
+      오시는 길
+      <span class="crumb-arrow">
+      </span>
+     </button>
+     <!-- 드롭다운 링크: 공통 JS 설정에 따라 변경될 수 있습니다 -->
+     <div class="crumb-menu">
+      <a href="directions.html">
+       오시는 길
+      </a>
+      <a href="visiting.html">
+       면회안내
+      </a>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <!-- ===== 본문 콘텐츠: 이 아래의 텍스트와 항목을 수정하세요 ===== -->
+  <main class="page-container guide-page">
+   <div class="page-heading">
+    <span class="eyebrow">
+     LOCATION &amp; DIRECTIONS
+    </span>
+    <h1>
+     오시는 길
+    </h1>
+    <p>
+     H대학교병원의 위치와 교통편을 안내합니다.
+    </p>
+   </div>
+   <!-- 콘텐츠 섹션: 병원 위치 -->
+   <section class="guide-section">
+    <h2>
+     병원 위치
+    </h2>
+    <p class="guide-address">
+     서울특별시 구로구 경인로 430
+    </p>
+    <p class="guide-lead">
+     H대학교병원 &middot; 본관 / 서관 / 동관(장례식장)
+    </p>
+    <div aria-label="지도 이미지 삽입 자리" class="guide-map-placeholder" role="img">
+     <strong>
+      MAP IMAGE
+     </strong>
+     <span>
+      지도 캡처 이미지 삽입 영역
+     </span>
+     <span class="guide-small">
+      이 영역을 &lt;img&gt; 태그로 교체하면 됩니다.
+     </span>
+    </div>
+    <p class="guide-small">
+     ※ 지도 캡처를 사용할 경우 출처 및 이용 조건을 확인해 주세요.
+    </p>
+   </section>
+   <!-- 콘텐츠 섹션: 대중교통 이용 안내 -->
+   <section class="guide-section">
+    <h2>
+     대중교통 이용 안내
+    </h2>
+    <div class="guide-transit">
+     <div class="guide-transit-card">
+      <h3>
+       지하철
+      </h3>
+      <p class="guide-lead">
+       경인로 430을 목적지로 설정해 인근 지하철역과 출구를 확인해 주세요.
+      </p>
+      <p class="guide-small">
+       역명&middot;출구&middot;도보 시간은 실제 노선 확인 후 기입할 수 있도록 비워 두었습니다.
+      </p>
+     </div>
+     <div class="guide-transit-card">
+      <h3>
+       버스
+      </h3>
+      <p class="guide-lead">
+       서울특별시 구로구 경인로 430 인근 정류장에서 하차 후 이동합니다.
+      </p>
+      <p class="guide-small">
+       정류장명과 버스 번호는 현행 교통정보 확인 후 입력해 주세요.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- 콘텐츠 섹션: 건물 안내 -->
+   <section class="guide-section">
+    <h2>
+     건물 안내
+    </h2>
+    <table class="guide-table">
+     <tr>
+      <th>
+       본관
+      </th>
+      <td>
+       주요 진료 및 안내 시설 (세부 배치는 추후 입력)
+      </td>
+     </tr>
+     <tr>
+      <th>
+       서관
+      </th>
+      <td>
+       부속 진료&middot;지원 시설 (세부 배치는 추후 입력)
+      </td>
+     </tr>
+     <tr>
+      <th>
+       동관
+      </th>
+      <td>
+       장례식장
+      </td>
+     </tr>
+    </table>
+   </section>
+  </main>
+  <!-- ===== 공통 푸터 ===== -->
+  <footer class="sub-footer">
+   <div class="footer-inner">
+    <strong>
+     H대학교 병원
+    </strong>
+    <p>
+     본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.
+    </p>
+    <small>
+     &copy; 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.
+    </small>
+   </div>
+  </footer>
+  <div aria-live="polite" class="toast" id="toast" role="status">
+  </div>
+ </body>
+</html>
+

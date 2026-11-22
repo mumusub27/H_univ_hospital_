@@ -1,6 +1,234 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>외래진료 안내 | H대학교병원</title><link rel="stylesheet" href="../css/subpage.css"><link rel="stylesheet" href="../css/guide.css"><script src="../js/subpage-header.js" defer></script></head>
-<body><div class="demo-banner">본 사이트는 가상 대학병원 홈페이지입니다.</div><div id="subpageHeader"></div>
-<nav class="breadcrumb-bar" aria-label="현재 페이지 경로"><div class="breadcrumb-inner"><a class="breadcrumb-home" href="../index.html" aria-label="홈">⌂</a><div class="crumb"><button class="crumb-button" type="button" aria-expanded="false">진료안내 <span class="crumb-arrow"></span></button><div class="crumb-menu"><a href="outpatient.html">진료안내</a><a href="directions.html">이용안내</a><a href="feedback.html">고객참여</a><a href="notices.html">병원소식</a><a href="greeting.html">병원소개</a></div></div><div class="crumb"><button class="crumb-button" type="button" aria-expanded="false">외래진료 안내 <span class="crumb-arrow"></span></button><div class="crumb-menu"><a href="outpatient.html">외래진료 안내</a><a href="admission.html">입·퇴원 절차 안내</a></div></div></div></nav>
-<main class="page-container guide-page"><div class="page-heading"><span class="eyebrow">OUTPATIENT GUIDE</span><h1>외래진료 안내</h1><p>외래진료 이용 절차와 예약 방법을 안내합니다.</p></div><section class="guide-section"><h2>외래진료 절차</h2><div class="guide-flow"><article class="guide-step"><div class="guide-step-head"><span class="guide-step-number">STEP 01</span>진료예약</div><div class="guide-step-body"><strong>진료과 및 의료진 선택</strong>진료과를 확인한 후 예약을 진행합니다.</div></article><article class="guide-step"><div class="guide-step-head"><span class="guide-step-number">STEP 02</span>접수 및 확인</div><div class="guide-step-body"><strong>예약 내용 확인</strong>진료 당일 안내 창구에서 접수 및 본인 확인을 진행합니다.</div></article><article class="guide-step"><div class="guide-step-head"><span class="guide-step-number">STEP 03</span>진료 및 수납</div><div class="guide-step-body"><strong>진료 후 수납</strong>필요한 검사·처방 안내를 받은 후 수납합니다.</div></article></div></section><div class="guide-note">초진 환자는 신분증 등 본인 확인에 필요한 서류를 준비해 주세요. 실제 예약 가능 여부와 접수 방법은 별도 안내를 확인해 주세요.</div><section class="guide-section"><h2>외래진료 예약 방법</h2><div class="guide-info-list"><div class="guide-info"><span class="guide-info-icon">⌂</span><div><h3>방문 예약</h3><p>원내 접수·예약 창구에서 진료 일정에 관한 안내를 받을 수 있습니다.</p></div></div><div class="guide-info"><span class="guide-info-icon">☎</span><div><h3>전화 예약</h3><p>예약센터 운영 여부와 연락처는 추후 입력할 수 있도록 비워 두었습니다.</p></div></div><div class="guide-info"><span class="guide-info-icon">▣</span><div><h3>온라인 예약</h3><p>온라인 예약 서비스 연결 시 이 영역에 예약 버튼을 추가할 수 있습니다.</p></div></div><div class="guide-info"><span class="guide-info-icon">✓</span><div><h3>예약 변경·취소</h3><p>예약 변경 및 취소는 해당 예약 경로를 통해 안내받을 수 있습니다.</p></div></div></div></section><section class="guide-section"><h2>진료 전 확인사항</h2><ul class="guide-list"><li>예약 시간보다 여유 있게 도착해 주세요.</li><li>이전 진료기록이나 검사 결과가 있다면 지참해 주세요.</li><li>진료과별 준비사항은 예약 시 안내에 따라 확인해 주세요.</li></ul></section></main>
-<footer class="sub-footer"><div class="footer-inner"><strong>H대학교 병원</strong><p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p><small>© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</small></div></footer><div id="toast" class="toast" role="status" aria-live="polite"></div></body></html>
+<html lang="ko">
+ <!-- 페이지 설정: 제목, CSS 및 공통 헤더 JS 경로를 수정하는 곳 -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   외래진료 안내 | H대학교병원
+  </title>
+  <link href="../css/subpage.css" rel="stylesheet"/>
+  <link href="../css/guide.css" rel="stylesheet"/>
+  <script defer="" src="../js/subpage-header.js">
+  </script>
+ </head>
+ <body>
+  <!-- ===== 페이지 상단: 안내 배너 / 헤더 / 브레드크럼 ===== -->
+  <div class="demo-banner">
+   본 사이트는 가상 대학병원 홈페이지입니다.
+  </div>
+  <!-- ===== 공통 헤더: js/subpage-header.js에서 생성 ===== -->
+  <div id="subpageHeader">
+  </div>
+  <!-- ===== 상단 버건디 경로 메뉴 ===== -->
+  <nav aria-label="현재 페이지 경로" class="breadcrumb-bar">
+   <div class="breadcrumb-inner">
+    <a aria-label="홈" class="breadcrumb-home" href="../index.html">
+     ⌂
+    </a>
+    <div class="crumb">
+     <button aria-expanded="false" class="crumb-button" type="button">
+      진료안내
+      <span class="crumb-arrow">
+      </span>
+     </button>
+     <!-- 드롭다운 링크: 공통 JS 설정에 따라 변경될 수 있습니다 -->
+     <div class="crumb-menu">
+      <a href="outpatient.html">
+       진료안내
+      </a>
+      <a href="directions.html">
+       이용안내
+      </a>
+      <a href="feedback.html">
+       고객참여
+      </a>
+      <a href="notices.html">
+       병원소식
+      </a>
+      <a href="greeting.html">
+       병원소개
+      </a>
+     </div>
+    </div>
+    <div class="crumb">
+     <button aria-expanded="false" class="crumb-button" type="button">
+      외래진료 안내
+      <span class="crumb-arrow">
+      </span>
+     </button>
+     <!-- 드롭다운 링크: 공통 JS 설정에 따라 변경될 수 있습니다 -->
+     <div class="crumb-menu">
+      <a href="outpatient.html">
+       외래진료 안내
+      </a>
+      <a href="admission.html">
+       입&middot;퇴원 절차 안내
+      </a>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <!-- ===== 본문 콘텐츠: 이 아래의 텍스트와 항목을 수정하세요 ===== -->
+  <main class="page-container guide-page">
+   <div class="page-heading">
+    <span class="eyebrow">
+     OUTPATIENT GUIDE
+    </span>
+    <h1>
+     외래진료 안내
+    </h1>
+    <p>
+     외래진료 이용 절차와 예약 방법을 안내합니다.
+    </p>
+   </div>
+   <!-- 콘텐츠 섹션: 외래진료 절차 -->
+   <section class="guide-section">
+    <h2>
+     외래진료 절차
+    </h2>
+    <div class="guide-flow">
+     <article class="guide-step">
+      <div class="guide-step-head">
+       <span class="guide-step-number">
+        STEP 01
+       </span>
+       진료예약
+      </div>
+      <div class="guide-step-body">
+       <strong>
+        진료과 및 의료진 선택
+       </strong>
+       진료과를 확인한 후 예약을 진행합니다.
+      </div>
+     </article>
+     <article class="guide-step">
+      <div class="guide-step-head">
+       <span class="guide-step-number">
+        STEP 02
+       </span>
+       접수 및 확인
+      </div>
+      <div class="guide-step-body">
+       <strong>
+        예약 내용 확인
+       </strong>
+       진료 당일 안내 창구에서 접수 및 본인 확인을 진행합니다.
+      </div>
+     </article>
+     <article class="guide-step">
+      <div class="guide-step-head">
+       <span class="guide-step-number">
+        STEP 03
+       </span>
+       진료 및 수납
+      </div>
+      <div class="guide-step-body">
+       <strong>
+        진료 후 수납
+       </strong>
+       필요한 검사&middot;처방 안내를 받은 후 수납합니다.
+      </div>
+     </article>
+    </div>
+   </section>
+   <div class="guide-note">
+    초진 환자는 신분증 등 본인 확인에 필요한 서류를 준비해 주세요. 실제 예약 가능 여부와 접수 방법은 별도 안내를 확인해 주세요.
+   </div>
+   <!-- 콘텐츠 섹션: 외래진료 예약 방법 -->
+   <section class="guide-section">
+    <h2>
+     외래진료 예약 방법
+    </h2>
+    <div class="guide-info-list">
+     <div class="guide-info">
+      <span class="guide-info-icon">
+       ⌂
+      </span>
+      <div>
+       <h3>
+        방문 예약
+       </h3>
+       <p>
+        원내 접수&middot;예약 창구에서 진료 일정에 관한 안내를 받을 수 있습니다.
+       </p>
+      </div>
+     </div>
+     <div class="guide-info">
+      <span class="guide-info-icon">
+       &phone;
+      </span>
+      <div>
+       <h3>
+        전화 예약
+       </h3>
+       <p>
+        예약센터 운영 여부와 연락처는 추후 입력할 수 있도록 비워 두었습니다.
+       </p>
+      </div>
+     </div>
+     <div class="guide-info">
+      <span class="guide-info-icon">
+       ▣
+      </span>
+      <div>
+       <h3>
+        온라인 예약
+       </h3>
+       <p>
+        온라인 예약 서비스 연결 시 이 영역에 예약 버튼을 추가할 수 있습니다.
+       </p>
+      </div>
+     </div>
+     <div class="guide-info">
+      <span class="guide-info-icon">
+       &checkmark;
+      </span>
+      <div>
+       <h3>
+        예약 변경&middot;취소
+       </h3>
+       <p>
+        예약 변경 및 취소는 해당 예약 경로를 통해 안내받을 수 있습니다.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- 콘텐츠 섹션: 진료 전 확인사항 -->
+   <section class="guide-section">
+    <h2>
+     진료 전 확인사항
+    </h2>
+    <ul class="guide-list">
+     <li>
+      예약 시간보다 여유 있게 도착해 주세요.
+     </li>
+     <li>
+      이전 진료기록이나 검사 결과가 있다면 지참해 주세요.
+     </li>
+     <li>
+      진료과별 준비사항은 예약 시 안내에 따라 확인해 주세요.
+     </li>
+    </ul>
+   </section>
+  </main>
+  <!-- ===== 공통 푸터 ===== -->
+  <footer class="sub-footer">
+   <div class="footer-inner">
+    <strong>
+     H대학교 병원
+    </strong>
+    <p>
+     본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.
+    </p>
+    <small>
+     &copy; 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.
+    </small>
+   </div>
+  </footer>
+  <div aria-live="polite" class="toast" id="toast" role="status">
+  </div>
+ </body>
+</html>
+
