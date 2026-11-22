@@ -16,16 +16,37 @@ const escapeHTML = value =>
     '"': "&quot;", "'": "&#39;"
   }[c]));
 
+
 async function request(url, options = {}) {
   const response = await fetch(url, {
     ...options,
-    headers: { ...headers, ...options.headers }
+    headers: {
+      ...headers,
+      ...options.headers
+    }
   });
+
   if (!response.ok) {
-    throw new Error(`HTTP ${response.status}`);
+    const errorData = await response.json().catch(() => ({}));
+
+    console.error("Supabase 요청 오류:", {
+      status: response.status,
+      code: errorData.code,
+      message: errorData.message,
+      details: errorData.details,
+      hint: errorData.hint
+    });
+
+    throw new Error(
+      errorData.message || `HTTP ${response.status}`
+    );
   }
-  return response.status === 204 ? null : response.json();
+
+  return response.status === 204
+    ? null
+    : response.json();
 }
+    
 
 function formatDate(value) {
   const d = new Date(value);
@@ -201,7 +222,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (payload.p_title.length < 2 ||
         payload.p_content.length < 5 ||
-        payload.p_password.length < 8) {
+        payload.p_password.length < 4 ||
+        payload.p_password.length > 10) {
       $("feedbackMessage").textContent = "입력 내용을 확인해 주세요.";
       return;
     }
@@ -223,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error(error);
       $("feedbackMessage").textContent =
-        "등록에 실패했습니다. 입력값과 연결 설정을 확인해 주세요.";
+        "등록 실패: " + error.message;
     } finally {
       submit.disabled = false;
     }
