@@ -1975,3 +1975,8 @@ a.doctor-clinic:hover {
 .breadcrumb-bar .crumb-menu {
   z-index: 111;
 }
+
+/* 햄버거 메뉴가 브레드크럼보다 위에 표시되도록 수정 */
+.shared-header {
+  z-index: 120;
+}
