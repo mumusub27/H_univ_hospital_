@@ -147,11 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       openedId = null;
       applySearch();
-    } catch (error) {
-      console.error(error);
-      count.textContent = "불러오기 실패";
-      list.textContent = "게시글을 불러오지 못했습니다.";
-    }
+    
+} catch (error) {
+  console.error("게시글 조회 오류:", error);
+
+  count.textContent = "불러오기 실패";
+  list.textContent =
+    "게시글 조회 실패: " + error.message;
+}
+
   }
 
   function applySearch() {
