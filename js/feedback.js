@@ -28,14 +28,8 @@ async function request(url, options = {}) {
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-
-    console.error("Supabase 요청 오류:", {
-      status: response.status,
-      code: errorData.code,
-      message: errorData.message,
-      details: errorData.details,
-      hint: errorData.hint
-    });
+    
+    console.error("Supabase 요청 실패:", response.status);
 
     throw new Error(
       errorData.message || `HTTP ${response.status}`
@@ -148,14 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
       openedId = null;
       applySearch();
     
-} catch (error) {
-  console.error("게시글 조회 오류:", error);
-
-  count.textContent = "불러오기 실패";
-  list.textContent =
-    "게시글 조회 실패: " + error.message;
-}
-
+      } catch (error) {
+        console.error("게시글 조회 오류:", error);
+          count.textContent = "불러오기 실패";
+          list.textContent = "게시글을 불러오지 못했습니다.";
+    }
   }
 
   function applySearch() {
@@ -275,7 +266,7 @@ if (invalid.length) {
     } catch (error) {
       console.error(error);
       $("feedbackMessage").textContent =
-        "등록 실패: " + error.message;
+      "게시글 등록에 실패했습니다. 잠시 후 다시 시도해 주세요.";
     } finally {
       submit.disabled = false;
     }
