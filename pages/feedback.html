@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>고객의 소리 | H대학교 병원</title>
+  <link rel="stylesheet" href="../css/subpage.css">
+  <link rel="stylesheet" href="../css/feedback.css">
+  <script src="../js/subpage-header.js" defer></script>
+  <script src="../js/feedback.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner">
+    본 사이트는 창작용 가상 대학병원 홈페이지입니다.
+  </div>
+  <div id="subpageHeader"></div>
+
+  <nav class="breadcrumb-bar" aria-label="현재 페이지 경로">
+    <div class="breadcrumb-inner">
+      <a class="breadcrumb-home" href="../index.html" aria-label="홈">⌂</a>
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          고객참여 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="departments.html">진료안내</a>
+          <a href="faq.html">고객참여</a>
+          <a href="notices.html">병원소식</a>
+        </div>
+      </div>
+      <div class="crumb">
+        <button class="crumb-button" type="button" aria-expanded="false">
+          고객의 소리 <span class="crumb-arrow"></span>
+        </button>
+        <div class="crumb-menu">
+          <a href="feedback.html">고객의 소리</a>
+          <a href="faq.html">자주 묻는 질문</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-container feedback-page">
+    <div class="page-heading">
+      <span class="eyebrow">CUSTOMER FEEDBACK</span>
+      <h1>고객의 소리</h1>
+      <p>H대학교 병원에 전하고 싶은 의견을 남겨주세요.</p>
+    </div>
+
+    <div class="feedback-notice">
+      본 게시판은 창작용 가상 병원의 공개 게시판입니다.
+      실제 환자 정보, 연락처 등 개인정보를 작성하지 마세요.
+    </div>
+
+    <div class="feedback-toolbar">
+      <span id="feedbackCount">게시글을 불러오는 중...</span>
+      <button type="button" id="writeToggle" class="feedback-primary">
+        글쓰기
+      </button>
+    </div>
+
+    <section id="writePanel" class="feedback-write" hidden>
+      <h2>고객의 소리 작성</h2>
+      <form id="feedbackForm">
+        <label for="feedbackCategory">유형</label>
+        <select id="feedbackCategory" required>
+          <option value="문의">문의</option>
+          <option value="건의">건의사항</option>
+          <option value="칭찬">칭찬합니다</option>
+          <option value="불편">불편사항</option>
+          <option value="기타">기타</option>
+        </select>
+
+        <label for="feedbackNickname">작성자</label>
+        <input id="feedbackNickname" maxlength="20"
+          placeholder="닉네임 (20자 이내)" required>
+
+        <label for="feedbackTitle">제목</label>
+        <input id="feedbackTitle" maxlength="100"
+          placeholder="제목을 입력해 주세요." required>
+
+        <label for="feedbackContent">내용</label>
+        <textarea id="feedbackContent" rows="8" maxlength="5000"
+          placeholder="내용을 입력해 주세요. (5~5000자)" required></textarea>
+
+        <p class="feedback-help">
+          게시글은 등록 즉시 공개됩니다.
+          현재는 등록 후 수정 및 삭제할 수 없습니다.
+        </p>
+        <button class="feedback-primary" type="submit" id="feedbackSubmit">
+          등록하기
+        </button>
+        <p id="feedbackMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <form id="feedbackSearch" class="feedback-search">
+      <input id="feedbackKeyword" type="search"
+        placeholder="제목·내용·작성자 검색">
+      <button type="submit">검색</button>
+    </form>
+
+    <section id="feedbackList" class="feedback-list"
+      aria-label="고객의 소리 게시글 목록"></section>
+
+    <nav id="feedbackPagination" class="feedback-pagination"
+      aria-label="페이지 이동"></nav>
+  </main>
+
+  <footer class="sub-footer">
+    <div class="footer-inner">
+      <strong>H대학교 병원</strong>
+      <p>본 웹사이트는 실제 의료기관과 무관한 창작용 패러디 홈페이지입니다.</p>
+      <small>© 2026 H UNIVERSITY HOSPITAL. PARODY PROJECT.</small>
+    </div>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+    
