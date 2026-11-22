@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>고객의 소리 | H대학교 병원</title>
+  <title>고객의 소리 | H대학교병원</title>
   <link rel="stylesheet" href="../css/subpage.css">
   <link rel="stylesheet" href="../css/feedback.css">
   <script src="../js/subpage-header.js" defer></script>
@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="demo-banner">
-    본 사이트는 창작용 가상 대학병원 홈페이지입니다.
+    본 사이트는 가상 대학병원 홈페이지입니다.
   </div>
   <div id="subpageHeader"></div>
 
@@ -49,21 +49,39 @@
     </div>
 
     <div class="feedback-notice">
-      본 게시판은 창작용 가상 병원의 공개 게시판입니다.
+      본 게시판은 가상 병원의 공개 게시판입니다.
       실제 환자 정보, 연락처 등 개인정보를 작성하지 마세요.
     </div>
-
+    
     <div class="feedback-toolbar">
       <span id="feedbackCount">게시글을 불러오는 중...</span>
       <button type="button" id="writeToggle" class="feedback-primary">
         글쓰기
       </button>
     </div>
-
-    <section id="writePanel" class="feedback-write" hidden>
-      <h2>고객의 소리 작성</h2>
+    
+    <form id="feedbackSearch" class="feedback-search">
+      <input id="feedbackKeyword" type="search"
+        placeholder="제목·내용·작성자 검색">
+      <button type="submit">검색</button>
+    </form>
+    
+    <section id="feedbackList" class="feedback-list"
+      aria-label="고객의 소리 게시글 목록"></section>
+    
+    <nav id="feedbackPagination" class="feedback-pagination"
+      aria-label="페이지 이동"></nav>
+    
+    <!-- 글쓰기 팝업 -->
+    <dialog id="writeDialog" class="feedback-dialog">
       <form id="feedbackForm">
-        <label for="feedbackCategory">유형</label>
+        <div class="feedback-dialog-heading">
+          <h2>고객의 소리 작성</h2>
+          <button type="button" class="feedback-close"
+            data-close-dialog aria-label="닫기">×</button>
+        </div>
+    
+        <label for="feedbackCategory">문의 유형</label>
         <select id="feedbackCategory" required>
           <option value="문의">문의</option>
           <option value="건의">건의사항</option>
@@ -71,41 +89,52 @@
           <option value="불편">불편사항</option>
           <option value="기타">기타</option>
         </select>
-
-        <label for="feedbackNickname">작성자</label>
-        <input id="feedbackNickname" maxlength="20"
-          placeholder="닉네임 (20자 이내)" required>
-
+    
+        <label for="feedbackNickname">닉네임</label>
+        <input id="feedbackNickname" maxlength="20" required>
+    
+        <label for="feedbackPassword">삭제 비밀번호</label>
+        <input id="feedbackPassword" type="password"
+          minlength="8" maxlength="72" autocomplete="new-password"
+          placeholder="8~72자" required>
+    
         <label for="feedbackTitle">제목</label>
-        <input id="feedbackTitle" maxlength="100"
-          placeholder="제목을 입력해 주세요." required>
-
+        <input id="feedbackTitle" maxlength="100" minlength="2" required>
+    
         <label for="feedbackContent">내용</label>
-        <textarea id="feedbackContent" rows="8" maxlength="5000"
-          placeholder="내용을 입력해 주세요. (5~5000자)" required></textarea>
-
+        <textarea id="feedbackContent" minlength="5" maxlength="5000"
+          rows="6" required></textarea>
+    
         <p class="feedback-help">
-          게시글은 등록 즉시 공개됩니다.
-          현재는 등록 후 수정 및 삭제할 수 없습니다.
+          작성한 글은 즉시 공개됩니다. 비밀번호를 잊으면
+          직접 삭제할 수 없습니다. 실제 개인정보는 입력하지 마세요.
         </p>
-        <button class="feedback-primary" type="submit" id="feedbackSubmit">
-          등록하기
-        </button>
+    
         <p id="feedbackMessage" role="status" aria-live="polite"></p>
+        <button id="feedbackSubmit" type="submit"
+          class="feedback-primary">등록하기</button>
       </form>
-    </section>
-
-    <form id="feedbackSearch" class="feedback-search">
-      <input id="feedbackKeyword" type="search"
-        placeholder="제목·내용·작성자 검색">
-      <button type="submit">검색</button>
-    </form>
-
-    <section id="feedbackList" class="feedback-list"
-      aria-label="고객의 소리 게시글 목록"></section>
-
-    <nav id="feedbackPagination" class="feedback-pagination"
-      aria-label="페이지 이동"></nav>
+    </dialog>
+    
+    <!-- 삭제 팝업 -->
+    <dialog id="deleteDialog" class="feedback-dialog">
+      <form id="deleteForm">
+        <div class="feedback-dialog-heading">
+          <h2>게시글 삭제</h2>
+          <button type="button" class="feedback-close"
+            data-close-dialog aria-label="닫기">×</button>
+        </div>
+    
+        <p>글 작성 시 설정한 비밀번호를 입력해 주세요.</p>
+        <input id="deletePassword" type="password"
+          autocomplete="off" placeholder="삭제 비밀번호" required>
+    
+        <p id="deleteMessage" role="status" aria-live="polite"></p>
+        <button id="deleteSubmit" type="submit"
+          class="feedback-primary">삭제하기</button>
+      </form>
+    </dialog>
+    
   </main>
 
   <footer class="sub-footer">
