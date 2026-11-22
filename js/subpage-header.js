@@ -64,7 +64,7 @@ const subpageMenus = [
       {
         title: "",
         links: [
-          { name: "고객의 소리", href: "feedback.html", pending: true },
+          { name: "고객의 소리", href: "feedback.html"},
           { name: "자주 묻는 질문 (FAQ)", href: "faq.html"}
         ]
       }
