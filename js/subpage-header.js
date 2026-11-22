@@ -353,6 +353,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const crumbs = [...document.querySelectorAll(".breadcrumb-bar .crumb")];
 
+      /* ===== 브레드크럼 메뉴 공통화 ===== */
+      
+      // 페이지별로 작성된 기존 메뉴 목록을
+      // subpageMenus 데이터 기준으로 통일합니다.
+      
+      const categoryLinks = {
+        "진료안내": "departments.html",
+        "이용안내": "../index.html#facilities",
+        "고객참여": "feedback.html",
+        "병원소식": "notices.html",
+        "병원소개": "../index.html#about"
+      };
+      
+      const normalizeLabel = text =>
+        text.replace(/[⌄∨▾]/g, "").trim();
+      
+      const currentCategory = crumbs[0]
+        ? normalizeLabel(
+            crumbs[0].querySelector(".crumb-button")
+              ?.textContent || ""
+          )
+        : "";
+      
+      crumbs.forEach((crumb, index) => {
+        const menu = crumb.querySelector(".crumb-menu");
+        if (!menu) return;
+      
+        // 기존 HTML에 작성된 링크를 초기화
+        menu.replaceChildren();
+      
+        let links = [];
+      
+        if (index === 0) {
+          // 첫 번째 드롭다운: 전체 상위 카테고리
+          links = subpageMenus.map(category => ({
+            name: category.title,
+            href: categoryLinks[category.title]
+          }));
+        } else if (index === 1) {
+          // 두 번째 드롭다운: 현재 카테고리의 하위 페이지
+          const category = subpageMenus.find(
+            item => item.title === currentCategory
+          );
+      
+          if (category) {
+            links = category.groups.flatMap(
+              group => group.links
+            );
+          }
+        }
+      
+        links.forEach(link => {
+          const anchor = document.createElement("a");
+          anchor.href = link.href;
+          anchor.textContent = link.name;
+      
+          if (link.pending) {
+            anchor.dataset.pending = "true";
+          }
+      
+          menu.appendChild(anchor);
+        });
+      });
+
   function closeCrumbs() {
     crumbs.forEach(crumb => {
       crumb.classList.remove("open");
