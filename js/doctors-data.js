@@ -119,8 +119,38 @@ const doctors = [
     papers: [],
     news: []
   },
+   /* ===== 심장혈관흉부외과 ===== */
+   {
+      id: "doctor-051",
+      name: "이정후",
+      departmentId: "cardiac-surgery",
+      photo: "../images/doctors/jhl.jpg",
+      fields: ["관상동맥질환", "판막질환", "대동맥질환"],
+      clinics: [],
+      specialNotes:"외상환자 외래진료는 전화문의 바랍니다.",
+      schedule: { am: [1], pm: [3] },
+      reservable: false,
+      career: [],
+      papers: [],
+      news: [],
+   },
 
-  /* ===== 5. 정형외과 ===== */
+   {
+      id: "doctor-041",
+      name: "안우진",
+      departmentId: "cardiac-surgery",
+      photo: "../images/doctors/awj.jpg",
+      fields: ["심장판막", "심방세동", "하지 정맥", "심부전", "중환자"],
+      clinics: [],
+      specialNotes:"외상환자 외래진료는 전화문의 바랍니다.",
+      schedule: { am: [2, 5], pm: [3] },
+      reservable: false,
+      career: [],
+      papers: [],
+      news: [],
+   },
+   
+      /* ===== 5. 정형외과 ===== */
   {
     id: "doctor-007",
     name: "추재현",
@@ -227,7 +257,26 @@ const doctors = [
     career: [],
     papers: [],
     news: []
-  }
+  },
+
+
+   {
+      id: "doctor-061",
+      name: "배동현",
+      departmentId: "anesthesiology",
+      photo: "../images/doctors/bdh.jpg",
+      fields: ["고위험수술 마취", "심폐마취"],
+      clinics: [],
+      specialNotes:"",
+      schedule: { },
+      reservable: false,
+      career: ["E대학교 학사", "E대학교 석사", "E대학교 서산병원 마취통증의학과 전공의","E대학교 서산병원 마취통증의학과 전임의" ],
+      papers: [],
+      news: [],
+   },
+
+
+   
 
   /* ★ 새 의료진은 이 위에 쉼표와 함께 추가 ★ */
 ];
