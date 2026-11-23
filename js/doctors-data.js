@@ -143,7 +143,7 @@ const doctors = [
       fields: ["심장판막", "심방세동", "하지 정맥", "심부전", "중환자"],
       clinics: [],
       specialNotes:"외상환자 외래진료는 전화문의 바랍니다.",
-      schedule: { am: [2, 5], pm: [3] },
+      schedule: { am: [1, 5], pm: [3] },
       reservable: false,
       career: [],
       papers: [],
