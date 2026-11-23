@@ -151,7 +151,7 @@ const departments = [
     name: "신경외과",
     category: "외과계",
     summary: "뇌·척수 및 신경계 외과 질환",
-    icon: "",
+    icon: "../images/departments/neurosurgery.png",
     description: "신경외과는 뇌와 척수, 말초신경에 발생하는 수술적 치료 대상 질환을 진료합니다.",
     specialties: ["뇌혈관 질환", "뇌종양", "척추 질환", "신경계 외상"],
     doctors: []
@@ -159,7 +159,7 @@ const departments = [
 
   /* ========== 3. 기타 진료과 ========== */
    {
-    id: "",
+    id: "anesthesiology",
     name: "마취통증의학과",
     category: "외과계",
     summary: "복부 및 일반 외과 질환",
