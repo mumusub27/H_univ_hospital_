@@ -12,7 +12,17 @@
 const departments = [
 
   /* ========== 1. 내과계 ========== */
-
+   {
+    id: "",
+    name: "내분비내과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+   
   {
     id: "gastroenterology",
     name: "소화기내과",
@@ -26,12 +36,34 @@ const departments = [
 
   {
     id: "cardiology",
-    name: "순환기내과",
+    name: "심장내과",
     category: "내과계",
     summary: "심장 및 혈관 질환",
     icon: "../images/departments/cardiology.png",
     description: "순환기내과는 심장과 혈관에 발생하는 다양한 질환을 진단하고 치료하는 진료과입니다.",
     specialties: ["고혈압", "협심증", "심부전", "부정맥"],
+    doctors: []
+  },
+   
+   {
+    id: "",
+    name: "신장내과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+   
+   {
+    id: "",
+    name: "알레르기내과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
     doctors: []
   },
 
@@ -50,7 +82,7 @@ const departments = [
 
   {
     id: "general-surgery",
-    name: "외과",
+    name: "간담췌외과",
     category: "외과계",
     summary: "복부 및 일반 외과 질환",
     icon: "",
@@ -59,6 +91,50 @@ const departments = [
     doctors: []
   },
 
+   {
+    id: "",
+    name: "대장항문외과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+
+   {
+    id: "",
+    name: "위장관외과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+
+   {
+    id: "",
+    name: "이식혈관외과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+   
+   { 
+    id: "cardiac-surgery",
+    name: "심장혈관흉부외과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "../images/departments/cardiac-surgery.png",
+    description: "심장혈관흉부외과는 심장, 혈관 및 흉부의 질환을 담당하는 임상 진료과입니다. H대학교병원에서는 최신 심장조영 영상장치 및 초음파기기를 이용한 정확한 진단과 그에 따른 적절한 외과적 치료에 노력하고 있습니다.",
+    specialties: ["심장판막질환", "관상동맥 · 대동맥질환", "부정맥", "흉부 손상", "흉막질환", "폐암", "감염성 및 간질성 폐질환"],
+    doctors: []
+  },
+   
   {
     id: "orthopedics",
     name: "정형외과",
@@ -82,7 +158,28 @@ const departments = [
   },
 
   /* ========== 3. 기타 진료과 ========== */
+   {
+    id: "",
+    name: "마취통증의학과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
 
+{
+    id: "",
+    name: "병리과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+   
   {
     id: "pediatrics",
     name: "소아청소년과",
@@ -105,6 +202,28 @@ const departments = [
     doctors: []
   },
 
+   {
+    id: "",
+    name: "응급의학과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+
+   {
+    id: "",
+    name: "재활의학과",
+    category: "외과계",
+    summary: "복부 및 일반 외과 질환",
+    icon: "",
+    description: "",
+    specialties: ["복부 질환", "담낭 질환", "탈장", "외과적 수술 치료"],
+    doctors: []
+  },
+   
   {
     id: "dermatology",
     name: "피부과",
