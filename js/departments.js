@@ -13,9 +13,9 @@ const departments = [
 
   /* ========== 1. 내과계 ========== */
    {
-    id: "",
+    id: "endocrinology",
     name: "내분비내과",
-    category: "외과계",
+    category: "내과계",
     summary: "복부 및 일반 외과 질환",
     icon: "",
     description: "",
