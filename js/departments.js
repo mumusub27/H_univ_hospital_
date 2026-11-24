@@ -93,11 +93,11 @@ const departments = [
   /* ========== 2. 외과계 ========== */
 
   {
-    id: "general-surgery",
+    id: "hepatobiliary-surgery",
     name: "간담췌외과",
     category: "외과계",
     summary: "간, 담도 · 담낭 및 췌장 질환",
-    icon: "../images/departments/general.png",
+    icon: "../images/departments/hepato.png",
     description: "간담췌외과는 우리나라에서 가장 많은 악성 종양의 하나인 간암을 비롯하여, 담낭 및 담도암과 췌장암 등의 악성종양, 그리고 담석을 중심으로 여러 양성질환 환자를 대상으로 하고 있습니다. 아울러 최신 수술 기법을 적극적으로 활용하여 환자의 수술 부담과 합병증을 최소화하고 수술 후 삶의 질을 높이기 위해 최선을 다하고 있습니다.",
     specialties: ["간 종양", "담석증", "담낭염", "췌장암", "비장 및 부신 질환"],
     doctors: []
