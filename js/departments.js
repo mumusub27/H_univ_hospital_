@@ -97,7 +97,7 @@ const departments = [
     name: "간담췌외과",
     category: "외과계",
     summary: "간, 담도 · 담낭 및 췌장 질환",
-    icon: "../images/departments/hepato.png",
+    icon: "../images/departments/hepatobiliary-surgery.png",
     description: "간담췌외과는 우리나라에서 가장 많은 악성 종양의 하나인 간암을 비롯하여, 담낭 및 담도암과 췌장암 등의 악성종양, 그리고 담석을 중심으로 여러 양성질환 환자를 대상으로 하고 있습니다. 아울러 최신 수술 기법을 적극적으로 활용하여 환자의 수술 부담과 합병증을 최소화하고 수술 후 삶의 질을 높이기 위해 최선을 다하고 있습니다.",
     specialties: ["간 종양", "담석증", "담낭염", "췌장암", "비장 및 부신 질환"],
     doctors: []
@@ -119,7 +119,7 @@ const departments = [
     name: "위장관외과",
     category: "외과계",
     summary: "식도·위·십이지장 및 소장 질환",
-    icon: "../images/departments/gastroidescripti.png",
+    icon: "../images/departments/gastrointestinal-surgery.png",
     description: "H대학교병원 위장관외과는 식도, 위, 십이지장 및 소장에 발생하는 다양한 질환에 대해 진단부터 수술, 수술 후 관리까지 전문적인 진료를 제공하고 있습니다. 풍부한 임상경험과 최신 최소침습수술 기법을 바탕으로 환자 개인에게 가장 적합한 치료를 시행하며, 복강경 및 로봇수술을 적극적으로 적용하여 빠른 회복과 삶의 질 향상을 위해 노력하고 있습니다.",
     specialties: ["위암", "위 · 소장 종양", "위식도역류질환", "탈장"],
     doctors: []
@@ -130,7 +130,7 @@ const departments = [
     name: "유방갑상선외과",
     category: "외과계",
     summary: "유방 및 갑상선 질환",
-    icon: "../images/departments/breast.png",
+    icon: "../images/departments/breast-surgery.png",
     description: "유방외과는 유선종, 낭종, 유선염 등의 양성 유방질환부터 유방암까지 유방에 발생하는 다양한 질환을 진단하고 치료하는 전문 진료 분야입니다. 또한 갑상선외과는 갑상선 기능 항진증을 포함한 양성 갑상선 결절, 갑상선암, 부갑상선 및 경부 질환 전반에 걸쳐 최고의 전문성을 발휘합니다. H대학교병원 유방갑상선외과는 정기 검진부터 진단, 수술, 항암치료, 방사선치료, 재건 및 치료 후 추적관찰에 이르기까지 모든 과정을 함께하는 동반자로서 환자 중심의 통합 진료를 실천하고 있습니다.",
     specialties: ["섬유선종", "유방암", "유방 양성종양", "갑상선결절", "갑상선암"],
     doctors: []
