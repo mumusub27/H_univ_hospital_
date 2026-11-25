@@ -263,9 +263,8 @@ function createDetailProfile(doctor) {
     el("p", "doctor-detail-department", departmentName(doctor))
   );
 
-  // ★ 교수 호칭은 표시용이며 데이터와 별개
   identity.appendChild(
-    el("h2", "", `${doctor.name} 교수`)
+    el("h2", "", `${doctor.name} ${doctor.position || "교수"}`)
   );
 
   top.appendChild(identity);
@@ -302,8 +301,11 @@ function createDetailProfile(doctor) {
     );
 
     scheduleArea.appendChild(
-      createSchedule(doctor)
+       if (!doctor.hidden) {
+       createSchedule(doctor)
     );
+   }
+      
 
     card.appendChild(scheduleArea);
 
@@ -387,6 +389,12 @@ function createDetailProfile(doctor) {
       const departmentId = select.value;
 
       const matched = doctors.filter(doctor => {
+      // 숨겨진 의료진은 이름을 정확히 검색했을 때만 표시
+         if (doctor.hidden === true) {
+           if (!keyword || doctor.name.toLocaleLowerCase("ko") !== keyword) {
+             return false;
+           }
+         }
         const departmentMatch =
           !departmentId ||
           doctor.departmentId === departmentId;
