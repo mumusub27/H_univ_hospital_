@@ -136,38 +136,7 @@ const departments = [
     doctors: []
   },
    
-   { 
-    id: "cardiac-surgery",
-    name: "심장혈관흉부외과",
-    category: "외과계",
-    summary: "복부 및 일반 외과 질환",
-    icon: "../images/departments/cardiac-surgery.png",
-    description: "심장혈관흉부외과는 심장, 혈관 및 흉부의 질환을 담당하는 임상 진료과입니다. H대학교병원 흉부외과에서는 최신 심장조영 영상장치 및 초음파기기를 이용한 정확한 진단과 그에 따른 적절한 외과적 치료를 시행하고 있으며, 수술 전후의 집중 환자 관리로 수술의 위험을 줄이고 수술 후 회복기간을 단축시키기 위해 지속적으로 노력하고 있습니다.",
-    specialties: ["심장판막질환", "관상동맥 · 대동맥질환", "부정맥 수술", "흉부 손상", "흉막질환", "폐암", "감염성 및 간질성 폐질환"],
-    doctors: []
-  },
-   
-  {
-    id: "orthopedics",
-    name: "정형외과",
-    category: "외과계",
-    summary: "뼈·관절·근육 및 척추 질환",
-    icon: "../images/departments/orthopedics.png",
-    description: "정형외과는 사지와 척추에 발생하는 근골격계 질환과 외상을 진단하고 치료하는 진료과입니다. H대학교병원 정형외과에서는 삶의 질을 저해하는 근골격계 질환과 외상에 대한 정확한 진단과 수준 높은 의료를 제공하기 위해 최선을 다하고 있습니다.",
-    specialties: ["고관절 질환 및 외상", "수부 질환 및 골절", "척추 질환", "소아 및 족부관절", "스포츠 손상"],
-    doctors: []
-  },
 
-  {
-    id: "neurosurgery",
-    name: "신경외과",
-    category: "외과계",
-    summary: "뇌·척수 및 신경계 외과 질환",
-    icon: "../images/departments/neurosurgery.png",
-    description: "신경외과는 뇌와 척수, 말초신경 등 신경 계통에 발생하는 질환이나 외상 등을 진단하고 수술적으로 치료하는 진료과입니다. H대학교병원 신경외과는 감마나이프, 수술실 내 MRI 등 최신 장비를 적극적으로 도입하여 수술에 사용하고 있으며 환자가 좀 더 정확하고 안전한 치료를 받을 수 있도록 끊임 없이 노력하고 있습니다.",
-    specialties: ["뇌동맥류", "뇌종양", "뇌졸증", "뇌출혈", "척추 질환", "척추외상"],
-    doctors: []
-  },
 
   /* ========== 3. 진료과 ========== */
    {
@@ -214,6 +183,38 @@ const departments = [
     doctors: []
   },
 
+   {
+    id: "neurology",
+    name: "신경과",
+    category: "진료과",
+    summary: "중추 신경 및 말초 신경 관련 질환",
+    icon: "../images/departments/neurology.png",
+    description: "신경과는 중추신경 및 말초신경과 근육에 생기는 모든 질병에 대하여 연구하고 치료하는 과입니다. H대학교병원 신경과는 외래 진료실, 입원실, 중환자실, 여러 신경계 특수검사실을 갖추고 있으며 각각의 질병에 대한 수준 높은 치료를 받을 수 있도록 노력하고 있습니다.",
+    specialties: ["뇌졸중", "파킨슨병", "치매", "척수말초신경질환", "어지럼증"],
+    doctors: []
+  },
+
+    {
+    id: "neurosurgery",
+    name: "신경외과",
+    category: "진료과",
+    summary: "뇌·척수 및 신경계 외과 질환",
+    icon: "../images/departments/neurosurgery.png",
+    description: "신경외과는 뇌와 척수, 말초신경 등 신경 계통에 발생하는 질환이나 외상 등을 진단하고 수술적으로 치료하는 진료과입니다. H대학교병원 신경외과는 감마나이프, 수술실 내 MRI 등 최신 장비를 적극적으로 도입하여 수술에 사용하고 있으며 환자가 좀 더 정확하고 안전한 치료를 받을 수 있도록 끊임 없이 노력하고 있습니다.",
+    specialties: ["뇌동맥류", "뇌종양", "뇌졸증", "뇌출혈", "척추 질환", "척추외상"],
+    doctors: []
+  },
+
+   { 
+    id: "cardiac-surgery",
+    name: "심장혈관흉부외과",
+    category: "진료과",
+    summary: "복부 및 일반 외과 질환",
+    icon: "../images/departments/cardiac-surgery.png",
+    description: "심장혈관흉부외과는 심장, 혈관 및 흉부의 질환을 담당하는 임상 진료과입니다. H대학교병원 흉부외과에서는 최신 심장조영 영상장치 및 초음파기기를 이용한 정확한 진단과 그에 따른 적절한 외과적 치료를 시행하고 있으며, 수술 전후의 집중 환자 관리로 수술의 위험을 줄이고 수술 후 회복기간을 단축시키기 위해 지속적으로 노력하고 있습니다.",
+    specialties: ["심장판막질환", "관상동맥 · 대동맥질환", "부정맥 수술", "흉부 손상", "흉막질환", "폐암", "감염성 및 간질성 폐질환"],
+    doctors: []
+  },
 
    {
     id: "emergency-medicine",
@@ -226,16 +227,6 @@ const departments = [
     doctors: []
   },
 
-   {
-    id: "neurology",
-    name: "신경과",
-    category: "진료과",
-    summary: "중추 신경 및 말초 신경 관련 질환",
-    icon: "../images/departments/neurology.png",
-    description: "신경과는 중추신경 및 말초신경과 근육에 생기는 모든 질병에 대하여 연구하고 치료하는 과입니다. H대학교병원 신경과는 외래 진료실, 입원실, 중환자실, 여러 신경계 특수검사실을 갖추고 있으며 각각의 질병에 대한 수준 높은 치료를 받을 수 있도록 노력하고 있습니다.",
-    specialties: ["뇌졸중", "파킨슨병", "치매", "척수말초신경질환", "어지럼증"],
-    doctors: []
-  },
    
    {
     id: "ophthalmology",
@@ -259,6 +250,17 @@ const departments = [
     doctors: []
   },
 
+   {
+    id: "orthopedics",
+    name: "정형외과",
+    category: "진료과",
+    summary: "뼈·관절·근육 및 척추 질환",
+    icon: "../images/departments/orthopedics.png",
+    description: "정형외과는 사지와 척추에 발생하는 근골격계 질환과 외상을 진단하고 치료하는 진료과입니다. H대학교병원 정형외과에서는 삶의 질을 저해하는 근골격계 질환과 외상에 대한 정확한 진단과 수준 높은 의료를 제공하기 위해 최선을 다하고 있습니다.",
+    specialties: ["고관절 질환 및 외상", "수부 질환 및 골절", "척추 질환", "소아 및 족부관절", "스포츠 손상"],
+    doctors: []
+  },
+   
   {
     id: "psychiatry",
     name: "정신건강의학과",
