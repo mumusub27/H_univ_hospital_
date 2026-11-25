@@ -286,35 +286,42 @@ function createDetailProfile(doctor) {
 }
   /* ===== 의료진 카드 ===== */
 
+  
+  /* ===== 의료진 카드 ===== */
+
   function createDoctorCard(doctor) {
     const card = el("article", "doctor-card");
 
     card.appendChild(createProfile(doctor));
 
-    const scheduleArea = el(
-      "div",
-      "doctor-card-schedule"
-    );
+    // 일반 의료진에게만 진료시간표 표시
+    if (!doctor.hidden) {
+      const scheduleArea = el(
+        "div",
+        "doctor-card-schedule"
+      );
 
-    scheduleArea.appendChild(
-      el("h3", "", "진료시간")
-    );
+      scheduleArea.appendChild(
+        el("h3", "", "진료시간")
+      );
 
-    scheduleArea.appendChild(
-       if (!doctor.hidden) {
-       createSchedule(doctor)
-    );
-   }
-      
+      scheduleArea.appendChild(
+        createSchedule(doctor)
+      );
 
-    card.appendChild(scheduleArea);
+      card.appendChild(scheduleArea);
+    }
 
     const actions = el("div", "doctor-actions");
 
-    actions.appendChild(
-      createReservation(doctor)
-    );
+    // 일반 의료진에게만 예약 버튼 표시
+    if (!doctor.hidden) {
+      actions.appendChild(
+        createReservation(doctor)
+      );
+    }
 
+    // 상세보기는 모든 의료진에게 표시
     const detailLink = el(
       "a",
       "doctor-detail-button",
@@ -329,6 +336,7 @@ function createDetailProfile(doctor) {
 
     return card;
   }
+    
 
   /* ========================================
      의료진 찾기 페이지
