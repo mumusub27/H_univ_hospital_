@@ -39,6 +39,12 @@ function createDoctor(
     // 의료진 프로필 사진
     photo: `../images/doctors/${id}.jpg`,
 
+    // 의료진 직위
+    position: "교수",
+
+    // 일반 의료진 목록에서 숨김 여부
+    hidden: false,
+
     // 전문 진료 분야
     fields: fields,
 
@@ -319,7 +325,6 @@ const doctors = [
      2. 외과계
      ======================================== */
 
-
   /* ===== 간담췌외과 ===== */
 
   createDoctor(
@@ -476,6 +481,24 @@ const doctors = [
         reservable: false,
         specialNotes: ["외상환자 외래진료는 전화문의 바랍니다"],
            }
+     ),
+   
+    createDoctor(
+       "cardiac-surgery-04",
+       "권혁빈",
+       "cardiac-surgery",
+       [""],
+       [0],
+       [2],
+        {
+         position: "인턴",
+         hidden: true,
+         photo: "../images/doctors/khb.png",
+         career: [
+           "H대학교 의과대학 졸업",
+           "H대학교병원 흉부외과 인턴"
+         ],
+        }
      ),
 
 
