@@ -666,8 +666,11 @@ document.addEventListener("DOMContentLoaded", () => {
    // 현재 진료과에 소속된 의료진 검색
    const departmentDoctors =
      typeof doctors !== "undefined"
-       ? doctors.filter(doctor => doctor.departmentId === dept.id)
-       : [];
+       ? doctors.filter(doctor =>
+        doctor.departmentId === dept.id &&
+        doctor.hidden !== true
+      )
+    : [];
    
    if (departmentDoctors.length > 0) {
    
