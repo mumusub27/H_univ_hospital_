@@ -697,9 +697,9 @@ const doctors = [
     "obgyn",
     ["자궁근종", "자궁내막증", "생식내분비 및 불임"],
     [2, 4],
-    [1, 3]
+    [1, 3],
      {
-photo: "../images/doctors/khs2.jpg",
+      photo: "../images/doctors/khs2.jpg",
       clinics: [
         { name: "고위험 임신 클리닉" }
       ],
@@ -709,8 +709,7 @@ photo: "../images/doctors/khs2.jpg",
         "H대학교병원 산부인과 전임의",
         "H대학교병원 산부인과 조교수",
          ],
-}
-
+      }
   ),
 
 
