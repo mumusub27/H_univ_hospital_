@@ -142,7 +142,7 @@ const doctors = [
     [0, 2, 4],
     [1],
     {
-      photo: "../images/doctors/ssm.png",
+      photo: "../images/doctors/ssm.jpg",
       clinics: [
         { name: "당뇨병 클리닉" }
          ],
@@ -446,7 +446,7 @@ const doctors = [
     [0, 3],
     [2],
      {
-      photo: "../images/doctors/ljh.png",
+      photo: "../images/doctors/ljh.jpg",
       career: [
         "H대학교 의과대학 졸업",
         "H대학교 의학박사",
@@ -495,7 +495,7 @@ const doctors = [
         {
          position: "인턴",
          hidden: true,
-         photo: "../images/doctors/khb.png",
+         photo: "../images/doctors/khb.jpg",
          career: [
            "H대학교 의과대학 졸업",
            "H대학교병원 흉부외과 인턴"
@@ -537,7 +537,7 @@ const doctors = [
     [2, 4],
     [1, 3],
     {
-      photo: "../images/doctors/cjh.png",
+      photo: "../images/doctors/cjh.jpg",
       clinics: [
         { name: "스포츠의학 클리닉" }
       ],
@@ -561,7 +561,7 @@ const doctors = [
     [0, 3],
     [2],
      {
-        photo: "../images/doctors/sgc.png",
+        photo: "../images/doctors/sgc.jpg",
         career: [
         "H대학교 의과대학 졸업",
         "H대학교 의학박사",
@@ -596,7 +596,7 @@ const doctors = [
     [],
     [],
     {
-      photo: "../images/doctors/bdh.png",
+      photo: "../images/doctors/bdh.jpg",
       career: [
         "S대학교 의과대학 졸업",
         "H대학교 의학박사",
@@ -668,7 +668,7 @@ const doctors = [
     [0, 2, 4],
     [1],
     {
-      photo: "../images/doctors/pbh.png",
+      photo: "../images/doctors/pbh.jpg",
       clinics: [
         { name: "고위험 임신 클리닉" }
       ],
@@ -693,11 +693,24 @@ const doctors = [
 
   createDoctor(
     "obgyn-03",
-    "최수연",
+    "김하성",
     "obgyn",
     ["자궁근종", "자궁내막증", "생식내분비 및 불임"],
     [2, 4],
     [1, 3]
+     {
+photo: "../images/doctors/khs2.jpg",
+      clinics: [
+        { name: "고위험 임신 클리닉" }
+      ],
+      career: [
+        "H대학교 의과대학 졸업",
+        "H대학교 의학박사",
+        "H대학교병원 산부인과 전임의",
+        "H대학교병원 산부인과 조교수",
+         ],
+}
+
   ),
 
 
@@ -732,7 +745,7 @@ const doctors = [
     [1, 3],
     [0, 2, 4],
     {
-      photo: "../images/doctors/lbw.png",
+      photo: "../images/doctors/lbw.jpg",
       clinics: [
         { name: "소아 알레르기 클리닉" }
          ],
@@ -753,7 +766,7 @@ const doctors = [
     [0, 4],
     [2, 3],
     {
-      photo: "../images/doctors/khs.png",
+      photo: "../images/doctors/khs.jpg",
       clinics: [
         { name: "소아신경 클리닉" }
       ],
@@ -777,7 +790,7 @@ const doctors = [
     [],
     [],
     {
-      photo: "../images/doctors/ljh2.png",
+      photo: "../images/doctors/ljh2.jpg",
       career: [
         "L대학교 의과대학 졸업",
         "H대학교 의학박사",
@@ -925,7 +938,7 @@ const doctors = [
     [1, 3],
     [0, 4],
      {
-        photo: "../images/doctors/kyh.png",
+        photo: "../images/doctors/kyh.jpg",
         career: [
         "H대학교 의과대학 졸업",
         "H대학교 의학박사",
